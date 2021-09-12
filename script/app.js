@@ -18,6 +18,8 @@ const app = Vue.createApp({
             productos: [],
             productosJugueteria: [],
             productosFarmacia: [],
+            carrito:[],
+            nombreMascota:"tu mascota"
         }
     },
     created() {
@@ -33,15 +35,20 @@ const app = Vue.createApp({
         filtrarProductos() {
             this.productosFarmacia = this.productos.filter(producto => producto.tipo == "Medicamento")
             this.productosJugueteria = this.productos.filter(producto => producto.tipo == "Juguete")
+        },
+        alertaContacto(){
+            alertify.defaults.glossary.title = "¡Qué bien!"
+            alertify.alert('Nos vamos a comunicar prontisimo con vos, acordate que estamos en Caballito y podes venir a visitarnos cuando quieras! Atentamente: Franco y sus amigos');
         }
     },
     computed: {
+        
 
 
     }
 })
 const debug = app.mount("#app")
-
+const alerta = alertify
 
 
 
@@ -81,9 +88,7 @@ const debug = app.mount("#app")
 //         setearEdad(edad) {
 //             this.edad = edad
 //         },
-//         cambiarNombre() {
-//             this.nombre = "Rigoberto"
-//         },
+//         
 //         restablecerNombre(nombre) {
 //             this.nombre = nombre
 //         },
