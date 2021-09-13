@@ -80,11 +80,12 @@ const app = Vue.createApp({
                     this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] + 1;
                     this.carrito[pos]["stock"]--;
                     this.guardarCarrito();
+                    this.isEmptyCartWatcher()
+
                 } else if (this.carrito[pos].stock == 0) {
                     console.log("sin stock")
-                    this.alertaStock(producto) 
+                    this.alertaStock(producto)
                 }
-
             } else {
                 let productoAComprar = {
                     "_id": producto._id,
@@ -97,23 +98,35 @@ const app = Vue.createApp({
                 }
                 this.carrito.push(productoAComprar);
                 this.guardarCarrito();
+                this.isEmptyCartWatcher()
+
             }
         },
         quitarProductoCarrito(producto) {
             if (this.carrito.some(prod => prod._id == producto._id)) {
                 let pos = this.carrito.findIndex(prod => prod._id == producto._id);
                 if (this.carrito[pos]["cantidad"] == 1) {
-                    this.carrito.splice(pos, 1)
                     this.carrito[pos]["stock"]++;
+                    this.carrito.splice(pos, 1)
                     this.guardarCarrito();
+                    this.isEmptyCartWatcher()
                     return
                 } else if (this.carrito[pos]["cantidad"] == 0) {
+                    console.log("Entre acá")
+                    this.guardarCarrito();
+                    this.isEmptyCartWatcher()
+
                     return
                 }
                 this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] - 1;
                 this.carrito[pos]["stock"]++;
                 this.guardarCarrito();
+                this.isEmptyCartWatcher()
+
             }
+            this.guardarCarrito();
+            this.isEmptyCartWatcher()
+
         },
         subtotalProducto(producto) {
             return producto.precio * producto.cantidad
@@ -121,11 +134,23 @@ const app = Vue.createApp({
         eliminarProducto(producto) {
             let pos = this.carrito.findIndex(prod => prod._id == producto._id);
             this.carrito.splice(pos, 1)
+            this.guardarCarrito();
+            this.isEmptyCartWatcher()
+
         },
         mostrarAnimal(animal) {
             imageSrc = this.animalesJuego.filter(elem => elem.id == animal)
             console.log(imageSrc[0].src)
             this.animalAMostrar = imageSrc[0].src;
+        },
+        isEmptyCartWatcher() {
+            console.log("entre al empty cart watcher")
+            console.log(this.carrito.length == 0)
+            if (this.carrito.length == 0) {
+                this.isEmptyCart = true;
+            } else {
+                this.isEmptyCart = false;
+            }
         }
     },
     computed: {
@@ -156,14 +181,8 @@ const app = Vue.createApp({
             return this.carrito.reduce((acum, producto) => {
                 return acum += (producto.precio * producto.cantidad)
             }, 0)
-        },
-        isEmptyCartWatcher() {
-            if (this.totalProductosCarrito == 0) {
-                this.isEmptyCart = true;
-            } else {
-                this.isEmptyCart = false;
-            }
         }
+
 
     }
 })

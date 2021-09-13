@@ -14,26 +14,26 @@
 </head>
 
 
-<header id="jugueteria">
+<header id="jugueteria"> 
     <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white text-left">Sobre mí</h4>
+                    <h4 class="text-white">Sobre mí</h4>
                     <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                        recomendarles todo lo que hace mi humano.
-                        Es increíblemente profesional, sorprendentemente prolijo e infinitamente amigable. No muerde y
-                        al primer ladrido suelta unos dulces sarpaaaadooos</p>
+                        recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                        prolijo e infinitamente amigable. No muerde y al primer ladrido suelta unos dulces sarpaaaadooos
+                    </p>
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">Además...</h4>
                     <ul class="list-unstyled">
-                        <li><a href="./index.html" class="text-white">Home</a></li>
                         <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
                         <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
                         <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvasRight">Tu Carrito</a></li>
                         <li><a href="./contacto.html" class="text-white">Contacto</a></li>
+                        <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
 
                     </ul>
                 </div>
@@ -43,7 +43,7 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
             <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
+                data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                 aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -126,7 +126,7 @@
         <div class="offcanvas-header">
             <h4 id="offcanvasRightLabel" v-if="!isEmptyCart">Tu carrito está contento: </h4>
             <transition name="bounce">
-                <div v-if="isEmptyCart">
+                <div v-show="isEmptyCart">
                     <h4 id="offcanvasRightLabel">Tu carrito está triste</h4>
                     <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="img-miniatura">
                 </div>
@@ -168,8 +168,6 @@
     crossorigin="anonymous"></script>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="./script/alertify.min.js"></script>
-
 <script src="./script/app.js"></script>
-<script src="./script/datos.js"></script>
 
 </html>

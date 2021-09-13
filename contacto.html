@@ -120,12 +120,18 @@
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight" id="myBtn">
         <img src="./assets/shopping.png" id="cart-img" alt="">
-        <p class="cantidad-productos">{{totalProductosCarrito}}</p>
+        <p class="cantidad-productos" v-cloak>{{totalProductosCarrito}}</p>
     </button>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
+            <h4 id="offcanvasRightLabel" v-if="!isEmptyCart">Tu carrito está contento: </h4>
+            <transition name="bounce">
+                <div v-if="isEmptyCart">
+                    <h4 id="offcanvasRightLabel">Tu carrito está triste</h4>
+                    <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="img-miniatura">
+                </div>
+            </transition>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -141,6 +147,10 @@
                 <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
                 <div class="item-6 align-middle">Subtotal</div>
                 <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+            </div>
+            <div>
+                <p>Total productos: {{totalProductosCarrito}}</p>
+                <p>Precio total: {{calcularPrecioTotal}} </p>
             </div>
         </div>
     </div>
