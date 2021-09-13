@@ -1,147 +1,259 @@
- *{
-     margin:0;
-     padding:0,
+ * {
+     margin: 0;
+     padding: 0,
  }
- 
+
  #header-image, #footer-image {
-      width: 100px !important;
-      height: auto !important;
-  }
+     width: 100px !important;
+     height: auto !important;
+ }
 
-  #header-image:hover {
-      cursor: pointer;
-  }
+ #header-image:hover {
+     cursor: pointer;
+ }
 
-  body {
-      height: 100vh;
-      background-color: wheat
-  }
+ body {
+     height: 100vh;
+     background-color: wheat
+ }
 
-  .happy-client {
-      width: 100%!important;
-  }
+ .happy-client {
+     width: 100%!important;
+ }
 
-  .clients {
-      height: 100%!important;
-      width: 100%!important;
-  }
+ .clients {
+     height: 100%!important;
+     width: 100%!important;
+ }
 
-  q {
-      color: black;
-  }
+ q {
+     color: black;
+ }
 
-  .review-container {
-      background-color: white;
-      margin: 0.2em 0em;
-  }
+ .review-container {
+     background-color: white;
+     margin: 0.2em 0em;
+ }
 
-  .img-stock {
-      position: absolute;
-      right: 1vw;
-      top: 1vh;
-      height: 15vh!important;
-      width: 15vh;
-  }
+ .img-stock {
+     position: absolute;
+     right: 1vw;
+     top: 1vh;
+     height: 15vh!important;
+     width: 15vh;
+ }
 
-  .imagen-container {
-      position: absolute;
-      max-width: 100%!important;
-  }
+ .imagen-container {
+     position: absolute;
+     max-width: 100%!important;
+ }
 
-  .italic {
-      font-style: italic;
-  }
+ .italic {
+     font-style: italic;
+ }
 
-  h5 {
-      text-align: start;
-      text-indent: 20px;
-      margin-left: 1.5rem!important;
-      font-size: 2rem!important;
-      font-weight: 900;
-      color: rgb(168, 190, 190);
-      background-color: rgb(0, 0, 0);
-      white-space: nowrap!important;
-  }
+ h5 {
+     text-align: start;
+     text-indent: 20px;
+     margin-left: 1.5rem!important;
+     font-size: 2rem!important;
+     font-weight: 900;
+     color: rgb(168, 190, 190);
+     background-color: rgb(0, 0, 0);
+     white-space: nowrap!important;
+ }
 
-  #catalogo {
-      /* background-color: red; */
-      min-width: 300px;
-      max-width: 700px;
-  }
+ #catalogo {
+     /* background-color: red; */
+     min-width: 300px;
+     max-width: 700px;
+ }
 
-  .card {
-      min-height: 100%;
-  }
+ .card {
+     min-height: 100%;
+ }
 
-  #myCarousel {
-      height: 50vh!important;
-  }
+ #myCarousel {
+     height: 50vh!important;
+ }
 
-  h5 {
-      text-align: center;
-  }
+ h5 {
+     text-align: center;
+ }
 
-  .card-text {
-      text-align: justify;
-  }
+ .card-text {
+     text-align: justify;
+ }
 
-  strong {
-      text-indent: 15px;
-  }
+ strong {
+     text-indent: 15px;
+ }
 
-  .map>* {
-      max-width: 60%!important;
-  }
+ .map>* {
+     max-width: 60%!important;
+ }
 
-  .presentacion {
-      text-align: justify!important;
-  }
+ .presentacion {
+     text-align: justify!important;
+ }
 
-  #myBtn {
-      position: fixed;
-      /* Fixed/sticky position */
-      bottom: 20px;
-      /* Place the button at the bottom of the page */
-      left: 30px;
-      /* Place the button 30px from the right */
-      z-index: 99;
-      cursor: pointer;
-      /* Add a mouse pointer on hover */
-      box-shadow: none!important;
-  }
+ .cantidad-productos {
+     position: fixed;
+     bottom: 70px;
+     left: 80px;
+     z-index: 100;
+     background-color: rgba(55, 25, 146, 0.774);
+     padding: 1px 6px;
+     border-radius: 60px;
+     color: white;
+     font-weight: 700;
+ }
 
-  #sadFace {
-      max-width: 15vw;
-  }
+ #myBtn {
+     position: fixed;
+     /* Fixed/sticky position */
+     bottom: 20px;
+     /* Place the button at the bottom of the page */
+     left: 30px;
+     /* Place the button 30px from the right */
+     z-index: 99;
+     cursor: pointer;
+     /* Add a mouse pointer on hover */
+     box-shadow: none!important;
+ }
 
-  iframe {
-      min-width: 80%;
-  }
+ #sadFace {
+     max-width: 15vw;
+ }
 
-  #cart-img {
-      max-width: 50px;
-      z-index: -2;
-  }
+ iframe {
+     min-width: 80%;
+ }
 
-  #search {
-      min-width: 15vw!important;
-      margin-left: 60vw;
-  }
- 
-.nombreYApellido{
-    padding-left: 0!important;
-    padding-right: 0!important;
+ #cart-img {
+     max-width: 50px;
+     z-index: -2;
+ }
 
-}
+ #search {
+     min-width: 15vw!important;
+     margin-left: 60vw;
+ }
 
-.img-miniatura{
-    max-width: 6vw!important;
-}
-.btn-miniatura{
-padding: .2rem .1rem!important;
-line-height: .5!important;
-}
+ .nombreYApellido {
+     padding-left: 0!important;
+     padding-right: 0!important;
+ }
 
-.td-max-width{
-    max-width: 4rem!important;
-}
+ .img-miniatura {
+     max-width: 8vw!important;
+ }
+
+ .btn-miniatura {
+     padding: .2rem .1rem!important;
+     line-height: .5!important;
+ }
+
+ .td-max-width {
+     max-width: 0rem!important;
+ }
+
+ .producto-miniatura {
+     visibility: hidden;
+     width: 0!important;
+ }
+
+ /* Carrito OFF Canvas */
+
+ .contenedor {
+     display: grid;
+     grid-template-columns: 1.5fr .5fr .5fr .5fr;
+     grid-template-rows: 1fr 1fr 1fr;
+     border-bottom: 2px solid rgb(202, 200, 200);
+     padding-bottom: 1rem;
+ }
+
+ /* Producto */
+
+ .item-1 {
+     /* background-color: rgb(69, 69, 168); */
+     grid-column: 1/5;
+     grid-row: 1;
+     text-align: left;
+     align-self: center;
+     font-style: italic;
+     font-weight: 600;
+ }
+
+ /* Imagen */
+
+ .item-2 {
+     /* background-color: rgb(69, 168, 82); */
+     grid-column: 1/2;
+     grid-row: 2/4;
+     text-align: center;
+     align-self: center;
+ }
+
+ /* Cantidad */
+
+ .item-3 {
+     /* background-color: rgb(168, 69, 124); */
+     grid-column: 2/4;
+     grid-row: 2/3;
+     text-align: center;
+     align-self: flex-end;
+     font-size: 1.5rem;
+     font-weight: 900
+ }
+
+ /* Suma */
+
+ .item-4 {
+     /* background-color: rgb(168, 100, 69); */
+     grid-column: 2/3;
+     text-align: right;
+     margin-right: .3rem;
+     align-self: center;
+ }
+
+ /* Resta */
+
+ .item-5 {
+     /* background-color: rgb(69, 168, 160); */
+     grid-column: 3/4;
+     grid-row: 3/4;
+     text-align: left;
+     align-self: center;
+     margin-left: .3rem;
+ }
+
+ /* precio subtotal */
+
+ .item-6 {
+     /* background-color: rgb(69, 168, 77); */
+     grid-column: 4/5;
+     grid-row: 2/3;
+     text-align: center;
+     align-self: center;
+ }
+
+ /* titulo subtotal */
+
+ .item-7 {
+     /* background-color: rgb(168, 69, 143); */
+     grid-column: 4/5;
+     grid-row: 1/2;
+     text-align: center;
+     align-self: baseline;
+     font-weight: 600;
+     font-size: 1.5rem;
+ }
+
+ .item-8 {
+     /* background-color: rgb(69, 168, 77); */
+     grid-column: 4/5;
+     grid-row: 3/4;
+     text-align: center;
+     align-self: center;
+ }

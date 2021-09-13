@@ -103,56 +103,25 @@
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight" id="myBtn">
         <img src="./assets/shopping.png" id="cart-img" alt="">
+        <p class="cantidad-productos">1</p>
     </button>
-    <table class="table">
-        <thead>
-            <th colspan="2">
-                Monthly Savings
-            </th>
-            <th>HOLA</th>
-        </thead>
-        <tr>
-            <td>January</td>
-            <td>$100</td>
-            <td>asdad</td>
-        </tr>
-        <tr>
-            <td>February</td>
-            <td>$80</td>
-            <td>asdad</td>
-
-        </tr>
-    </table>
+    
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            <table class="table">
-                <thead>
-                    <th colspan="3">Detalle</th>
-                    <th>Cantidad</th>
-                    <th>Subtotal</th>
-                </thead>
-                <tbody>
-
-                    <tr v-for="producto in productos">
-                        <td colspan="2" class="td-max-width">{{producto.nombre}}</td>
-                        <td><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></td>
-                        <td> 1
-                            <button class="btn btn-dark btn-block btn-miniatura mx-1">&#43;</button>
-                            <button class="btn btn-dark btn-block btn-miniatura mx-1">&minus;</button>
-                        </td>
-                        <td>
-                            ${{producto.precio}}
-                            <a href="">&times;</a>
-                        </td>
-
-                    </tr>
-
-                </tbody>
-            </table>
+        <div class="offcanvas-body">          
+            <div v-for="producto in productos" class="contenedor">
+                <div class="item-1 align-middle">{{producto.nombre}}</div>
+                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></div>
+                <div class="item-3">1</div>
+                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
+                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
+                <div class="item-7">&times;</div>
+                <div class="item-6 align-middle">$900</div>
+                <div class="item-8 align-middle">Subtotal</div>
+            </div>
         </div>
     </div>
 </body>

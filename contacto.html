@@ -118,22 +118,29 @@
     </form>
     <!-- OFF CANVAS CARRITO -->
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight" id="myBtn">
-        <img src="./assets/shopping.png" id="cart-img" alt="">
-    </button>
+    aria-controls="offcanvasRight" id="myBtn">
+    <img src="./assets/shopping.png" id="cart-img" alt="">
+    <p class="cantidad-productos">1</p>
+</button>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul>
-                <li v-for="producto in productos">{{producto.nombre}}</li>
-
-            </ul> 
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">          
+        <div v-for="producto in productos" class="contenedor">
+            <div class="item-1 align-middle">{{producto.nombre}}</div>
+            <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></div>
+            <div class="item-3">1</div>
+            <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
+            <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
+            <div class="item-7">&times;</div>
+            <div class="item-6 align-middle">$900</div>
+            <div class="item-8 align-middle">Subtotal</div>
         </div>
     </div>
+</div>
 </body>
 
 <div class="container my-5">
