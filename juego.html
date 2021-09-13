@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>F R A N C O, Home</title>
+</head>
+
+
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">Sobre mí</h4>
+                    <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta
+                        página para
+                        recomendarles todo lo que hace mi humano.
+                        Es increíblemente profesional, sorprendentemente prolijo e infinitamente amigable. No muerde y
+                        al primer ladrido suelta unos dulces sarpaaaadooos</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Además...</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="./jugueteria.html" class="text-white">Nuestros Juguetes</a></li>
+                        <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
+                        <li><a href="#" class="text-white">Tu Carrito</a></li>
+                        <li><a href="./contacto.html" class="text-white">Contacto</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
+                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<body class="bg-light" id="app">
+    <div class="row text-center">
+        <h1 class="display-4 fw-normal my-5 py-2">¿Seguís acá humano? 🙆‍♂️</h1>
+        <p class="col-11 lead presentacion mx-4 px-4 text-center">Ya te mostramos todos nuestros productos, dónde
+            estamos y nuestros datos. Pero bueno, ya que seguís acá te proponemos un juego: es fácil. Tenés 4 opciones,
+            en una está escondido Franco y en las otras un par de sus amigos (y clientes felices nuestros). A ver a
+            quién encontrás primero :)
+
+        </p>
+    </div>
+    <div class="contenedor-juego keys" id="centro">
+        <div class="juego-foto">
+            <img :src="animalAMostrar" alt="" class="image-juego">
+        </div>
+        <div data-key="65" class="juego-1 key" @click="mostrarAnimal('hamster')">A </div>
+        <div data-key="83" class="juego-2 key" @click="mostrarAnimal('franco')">S</div>
+        <div data-key="68" class="juego-3 key" @click="mostrarAnimal('gato')">D</div>
+        <div data-key="70" class="juego-4 key" @click="mostrarAnimal('gaviota')">F</div>
+
+        <audio data-key="65" src="./sounds/hamster.ogg"></audio>
+        <audio data-key="83" src="./sounds/franco.ogg"></audio>
+        <audio data-key="68" src="./sounds/gato.ogg"></audio>
+        <audio data-key="70" src="./sounds/gaviota.ogg"></audio>
+    </div>
+
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight" id="myBtn">
+        <img src="./assets/shopping.png" id="cart-img" alt="">
+        <p class="cantidad-productos">0</p>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div v-for="producto in productos" class="contenedor">
+                <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura">
+                </div>
+                <div class="item-3">0</div>
+                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
+                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
+                <div class="item-7">&times;</div>
+                <div class="item-8 align-middle">$900</div>
+                <div class="item-6 align-middle">Subtotal</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<div class="container my-5">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
+
+            <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
+        </div>
+    </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@next"></script>
+
+<script src="./script/app.js"></script>
+
+</html>

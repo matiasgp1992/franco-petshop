@@ -4,7 +4,6 @@ let seccion = document.querySelector("header").id
 const app = Vue.createApp({
     data() {
         return {
-
             productos: [],
             productosJugueteria: [],
             productosFarmacia: [],
@@ -13,7 +12,26 @@ const app = Vue.createApp({
             busqueda: "",
             noProducts: false,
             carga: true,
-            nombreMascota: "Firulais"
+            nombreMascota: "Firulais",
+            animalesJuego: [
+                {
+                    "id": "gato",
+                    "src": "./assets/gato.png"
+                },
+                {
+                    "id": "hamster",
+                    "src": "./assets/hamster.png"
+                },
+                {
+                    "id": "franco",
+                    "src": "./assets/franco.png"
+                },
+                {
+                    "id" : "gaviota",
+                    "src": "./assets/gaviota.png"
+                }
+            ],
+            animalAMostrar: ""
         }
     },
     created() {
@@ -72,11 +90,16 @@ const app = Vue.createApp({
             }
         },
         subtotalProducto(producto) {
-            return producto.precio*producto.cantidad
+            return producto.precio * producto.cantidad
         },
-        eliminarProducto(producto){
+        eliminarProducto(producto) {
             let pos = this.carrito.findIndex(prod => prod._id == producto._id);
             this.carrito.splice(pos, 1)
+        },
+        mostrarAnimal(animal) {
+            imageSrc = this.animalesJuego.filter(elem=> elem.id == animal)
+            console.log(imageSrc[0].src)
+            this.animalAMostrar = imageSrc[0].src;
         }
     },
     computed: {
@@ -102,62 +125,29 @@ const app = Vue.createApp({
                 return acumulador += producto.cantidad
             }, 0)
         },
-
-
-
-
-
+        escucharWindow(){
+           
+            
+        }
     }
 })
 const debug = app.mount("#app")
 
 
+function removeTransition(e) {
+    if (e.propertyName !== "transform") return;
+    this.classList.remove("playing")
+}
 
+const keys = document.querySelectorAll(".key")
+keys.forEach(key => key.addEventListener("transitionend", removeTransition))
 
-// const app = Vue.createApp({
-//     // funcion data, devuelve un objeto con mucha información
-//     data() {
-//         return {
-//             nombre: "Rodrigo",
-//             apellido: "Paris",
-//             edad: 30,
-//             esVisible: true,
-//             posts: [
-//                 {
-//                     titulo: "Este es un post",
-//                     cuerpo: "este es el primero de todos",
-//                     imagen: "./assets/confused.png"
-//                 },
-//                 {
-//                     titulo: "Este es otro post",
-//                     cuerpo: "este es el segundo de todos"
-//                 },
-//                 {
-//                     titulo: "Este es el ultimo post",
-//                     cuerpo: "terminamos"
-//                 }
-//             ]
-//         }
-//     },
-//     methods: {
-//         aumentarEdad() {
-//             this.edad++
-//         },
-//         disminuirEdad() {
-//             this.edad--
-//         },
-//         setearEdad(edad) {
-//             this.edad = edad
-//         },
-//         
-//         restablecerNombre(nombre) {
-//             this.nombre = nombre
-//         },
-//         toggleVisibilidad() {
-//             this.esVisible = !this.esVisible
-//         }
-//     }
-// })
-
-// // monto esa aplicación en el elemento del dom que tenga el ID app (similiar a query selector)
-// app.mount("#app")
+window.addEventListener(("click"), (e) => {
+    keyCode = e.srcElement.dataset.key
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`)
+    const key = document.querySelector(`.key[data-key="${keyCode}"]`)
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play()
+    key.classList.add("playing")
+})

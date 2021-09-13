@@ -18,7 +18,8 @@
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white">Sobre mí</h4>
-                    <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                    <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta
+                        página para
                         recomendarles todo lo que hace mi humano.
                         Es increíblemente profesional, sorprendentemente prolijo e infinitamente amigable. No muerde y
                         al primer ladrido suelta unos dulces sarpaaaadooos</p>
@@ -39,7 +40,7 @@
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
             <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
+                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                 aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -65,24 +66,23 @@
             ahora...¿dónde los encuentro? Ja! Mirá más abajo y, ¡sorpreeesa!</p>
     </div>
 
-   
 
 
+    <!-- CArrousel clientes -->
 
     <div class="clients position-relative">
-        <div id="carouselExampleCaptions" class="carousel slide position-absolute top-50 start-50 translate-middle"
-            data-bs-ride="carousel">
+        <div id="carouselClientes" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                <button type="button" data-bs-target="#carouselClientes" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                <button type="button" data-bs-target="#carouselClientes" data-bs-slide-to="1"
                     aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                <button type="button" data-bs-target="#carouselClientes" data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active review-container">
-                    <img src="./assets/clientes1.jpg" class="d-block  happy-client" alt="cliente feliz1">
+                    <img src="./assets/clientes1.jpg" class="d-block happy-client" alt="cliente feliz1">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Catsby </h5>
                         <div class="review-container"> <q class="text-left italic">Un día merodeando dí con el local de
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="carousel-item">
-                    <img src="./assets/clientes2.jpg" class="d-block  happy-client" alt="cliente feliz2">
+                    <img src="./assets/clientes2.jpg" class="d-block happy-client" alt="cliente feliz2">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Frodo</h5>
                         <div class="review-container"> <q class="text-left italic">
@@ -115,18 +115,17 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselClientes" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselClientes" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
     </div>
+    <!-- MAPA -->
     <div class="row col-12 justify-content-center map">
         <h2 class="text-center pt-2 mt-4">¡Sorpresa! Estamos en el mejor barrio de CABA</h2>
         <p class="text-center italic">(y no, no es Palermo...)</p>
@@ -134,38 +133,40 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.687100442936!2d-58.43257228524291!3d-34.61207296544626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses-419!2sar!4v1631296699189!5m2!1ses-419!2sar"
             width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
+    <!-- CARRITO OFF CANVAS -->
 
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-    aria-controls="offcanvasRight" id="myBtn">
-    <img src="./assets/shopping.png" id="cart-img" alt="">
-    <p class="cantidad-productos">0</p>
-</button>
+        aria-controls="offcanvasRight" id="myBtn">
+        <img src="./assets/shopping.png" id="cart-img" alt="">
+        <p class="cantidad-productos">0</p>
+    </button>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-        <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">          
-        <div v-for="producto in productos" class="contenedor">
-            <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-            <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></div>
-            <div class="item-3">0</div>
-            <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
-            <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
-            <div class="item-7">&times;</div>
-            <div class="item-8 align-middle">$900</div>
-            <div class="item-6 align-middle">Subtotal</div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div v-for="producto in productos" class="contenedor">
+                <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura">
+                </div>
+                <div class="item-3">0</div>
+                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
+                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
+                <div class="item-7">&times;</div>
+                <div class="item-8 align-middle">$900</div>
+                <div class="item-6 align-middle">Subtotal</div>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
 
 <div class="container my-5">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
-            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image" >
+            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
 
             <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
         </div>
