@@ -137,3 +137,11 @@
 .img-miniatura{
     max-width: 6vw!important;
 }
+.btn-miniatura{
+padding: .2rem .1rem!important;
+line-height: .5!important;
+}
+
+.td-max-width{
+    max-width: 4rem!important;
+}

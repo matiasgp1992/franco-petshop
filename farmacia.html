@@ -104,7 +104,25 @@
         aria-controls="offcanvasRight" id="myBtn">
         <img src="./assets/shopping.png" id="cart-img" alt="">
     </button>
+    <table class="table">
+        <thead>
+            <th colspan="2">
+                Monthly Savings
+            </th>
+            <th>HOLA</th>
+        </thead>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+            <td>asdad</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>$80</td>
+            <td>asdad</td>
 
+        </tr>
+    </table>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
@@ -113,21 +131,26 @@
         <div class="offcanvas-body">
             <table class="table">
                 <thead>
-                    <tr>Detalle</tr>
-                    <tr>Precio Unitario</tr>
-                    <tr>Cantidad</tr>
-                    <tr>Subtotal</tr>
+                    <th colspan="3">Detalle</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
                 </thead>
                 <tbody>
+
                     <tr v-for="producto in productos">
+                        <td colspan="2" class="td-max-width">{{producto.nombre}}</td>
                         <td><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></td>
-                        <td>${{producto.precio}}</td>
-                        <td><button class="btn btn-dark btn-block m-1 text-center">&#43;</button></td>
-                         <td>   <button class="btn btn-dark btn-block m-1">&minus;</button></td>
-                        <td>Subtotal</td>
-                        <td>&times;</td>
+                        <td> 1
+                            <button class="btn btn-dark btn-block btn-miniatura mx-1">&#43;</button>
+                            <button class="btn btn-dark btn-block btn-miniatura mx-1">&minus;</button>
+                        </td>
+                        <td>
+                            ${{producto.precio}}
+                            <a href="">&times;</a>
+                        </td>
+
                     </tr>
-                    
+
                 </tbody>
             </table>
         </div>
