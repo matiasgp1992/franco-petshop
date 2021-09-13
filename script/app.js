@@ -1,25 +1,18 @@
-// creo una app de clase Vue a traves del método createApp()
-// recibe como argumento un objeto con métodos y propiedades,
-// para manejar la informacion q va a tener nuestra data usamos
-// lo siguiente
-
-
-// let chamber = document.querySelector("body").id
 const endpoint = `https://apipetShop.herokuapp.com/api/articulos`
-// const init = {
-//     headers: {
-//         "X-API-key": "eObmd0hjXfacZmdqvTlfLNE1iyVFB4jp8yxtLqDP"
-//     }
-// }
+let seccion = document.querySelector("header").id
 // VUE
 const app = Vue.createApp({
     data() {
         return {
+
             productos: [],
             productosJugueteria: [],
             productosFarmacia: [],
-            carrito:[],
-            nombreMascota:"tu mascota"
+            productosFiltrados: [],
+            carrito: [],
+            busqueda: "",
+            noProducts: false,
+            nombreMascota: "tu mascota"
         }
     },
     created() {
@@ -28,6 +21,7 @@ const app = Vue.createApp({
             .then(data => {
                 this.productos = data.response;
                 this.filtrarProductos();
+                this.busquedaProductos
             })
             .catch(err => console.error(err.message))
     },
@@ -36,19 +30,38 @@ const app = Vue.createApp({
             this.productosFarmacia = this.productos.filter(producto => producto.tipo == "Medicamento")
             this.productosJugueteria = this.productos.filter(producto => producto.tipo == "Juguete")
         },
-        alertaContacto(){
+        alertaContacto() {
             alertify.defaults.glossary.title = "¡Qué bien!"
             alertify.alert('Nos vamos a comunicar prontisimo con vos, acordate que estamos en Caballito y podes venir a visitarnos cuando quieras! Atentamente: Franco y sus amigos');
         }
     },
     computed: {
-        
+        busquedaProductos() {
+            if (seccion == "jugueteria") {
+                this.productosFiltrados = this.productosJugueteria.filter(producto => producto.nombre.toLowerCase().includes(this.busqueda.toLowerCase()))
+                this.noProductstoShow
+                return this.productosFiltrados
+            }
+            console.log("buscando productos en farmacia")
+            this.productosFiltrados = this.productosFarmacia.filter(producto => producto.nombre.toLowerCase().includes(this.busqueda.toLowerCase()))
+            this.noProductstoShow
+            return this.productosFiltrados
+        },
+        noProductstoShow() {
+            if (this.productosFiltrados.length == 0) {
+                this.noProducts = true;
+            } else {
+                this.noProducts = false
+            }
+
+
+        }
+
 
 
     }
 })
 const debug = app.mount("#app")
-const alerta = alertify
 
 
 

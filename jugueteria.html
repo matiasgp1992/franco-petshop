@@ -12,13 +12,14 @@
 </head>
 
 
-<header>
+<header id="jugueteria">
     <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white text-left">Sobre mí</h4>
-                    <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para recomendarles todo lo que hace mi humano.
+                    <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                        recomendarles todo lo que hace mi humano.
                         Es increíblemente profesional, sorprendentemente prolijo e infinitamente amigable. No muerde y
                         al primer ladrido suelta unos dulces sarpaaaadooos</p>
                 </div>
@@ -28,8 +29,9 @@
                         <li><a href="./index.html" class="text-white">Home</a></li>
                         <li><a href="./jugueteria.html" class="text-white">Nuestros Juguetes</a></li>
                         <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
-                        <li><a href="#" class="text-white">Tu Carrito</a></li>
-                        <li><a href="#" class="text-white">Contacto</a></li>
+                        <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight">Tu Carrito</a></li>
+                        <li><a href="./contacto.html" class="text-white">Contacto</a></li>
 
                     </ul>
                 </div>
@@ -40,10 +42,6 @@
         <div class="container">
             <p class="text-muted "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
                     data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</p>
-
-
-            <strong>F R A N C O - PET SHOP</strong>
-            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                 aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -54,7 +52,6 @@
 
 <body class="bg-light" id="app">
     <div class="container">
-
         <div class="col-11 mx-2 text-center">
             <h1 class="display-4 fw-normal m-5 text-center">¡La jugueteria de Franco! 🐾</h1>
             <p class="col-12 lead presentacion text-justify">Divertirse siempre fue importante para todos, y nuestras
@@ -62,11 +59,23 @@
                 quedan afuera. Fijate en nuestro catálogo de productos los articulos más divertidos para entretenerse,
                 entrenar y pasar el rato.</p>
         </div>
+        <form class="row">
+            <div class="col align-self-end" id="search">
+                <label for="busqueda" class="visually-hidden"></label>
+                <input type="text" class="form-control" id="busqueda" placeholder="Buscar producto" v-model="busqueda">
+            </div>
+        </form>
+        <div id="noProducto" v-if="noProducts" class="row justify-content-around">
+            <img src="./assets/noHay.png" alt="cara triste por no hallar productos" id="sadFace" class="col-10 mt-5">
+            <p class="col-10 text-center mt-5">Mmm...no tenemos {{busqueda}}...La buena noticia es que podés dejarnos un
+                comentario en nuestra <a href="./contacto.html">página de contacto</a> y podemos hablar con nuestros
+                proveedores para conseguirlo...¿qué tul??</p>
+        </div>
         <div class="album py-5 bg-light">
             <div class="container">
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col" v-for="producto in productosJugueteria">
+                    <div class="col" v-for="producto in busquedaProductos">
                         <div class="card shadow-sm">
                             <img v-bind:src="producto.imagen" alt="imagen de producto" class="img-producto">
                             <img src="./assets/isStock.png" alt="" class="img-stock" v-if="producto.stock<5">
@@ -84,17 +93,28 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
-
-
     </div>
+    <!-- OFF CANVAS CARRITO -->
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight" id="myBtn">
+        <img src="./assets/shopping.png" id="cart-img" alt="">
+    </button>
 
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul>
+                <li v-for="producto in productos">{{producto.nombre}}</li>
+
+            </ul>
+        </div>
+    </div>
 </body>
 
 <div class="container my-5">
@@ -125,5 +145,6 @@
 <script src="https://unpkg.com/vue@next"></script>
 
 <script src="./script/app.js"></script>
+<script src="./script/datos.js"></script>
 
 </html>

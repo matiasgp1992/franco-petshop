@@ -54,12 +54,12 @@
 <body class="bg-light" id="app">
     <div class="row mx-2 m-5">
         <h4 class="display-4 fw-normal my-2 p-5 text-left">Formulario de contacto</h4>
-        <p class="col-12 lead presentacion m-2 px-5">Qué bueno que hayas llegado hasta acá...Sin mucho más rodeo, abajo podés dejarnos tus datos y comentarios para que sigamos en contacto.</p>
-        
+        <p class="col-12 lead presentacion m-2 px-5">Qué bueno que hayas llegado hasta acá...Sin mucho más rodeo, abajo
+            podés dejarnos tus datos y comentarios para que sigamos en contacto.</p>
+
     </div>
 
     <form class="m-5 p-5">
-        <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
@@ -83,7 +83,7 @@
 
         <!-- Text input -->
         <div class="form-outline mb-4">
-            <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es un perro o un gato? ¿Quizás otra
+            <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es perro o gato? ¿Quizás otra
                 especie?</label>
             <input type="text" id="form6Example4" class="form-control" />
         </div>
@@ -115,7 +115,6 @@
 
         <!-- Submit button -->
         <button type="button" class="btn btn-primary btn-block mb-4" @click="alertaContacto()">¡Enviar!</button>
-       
     </form>
     <!-- OFF CANVAS CARRITO -->
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
