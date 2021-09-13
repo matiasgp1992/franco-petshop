@@ -12,7 +12,7 @@ const app = Vue.createApp({
             carrito: [],
             busqueda: "",
             noProducts: false,
-            nombreMascota: "tu mascota"
+            nombreMascota: "Firulais"
         }
     },
     created() {

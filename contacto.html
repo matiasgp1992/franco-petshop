@@ -114,12 +114,12 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4" @click="alertaContacto()">¡Enviar!</button>
+        <button type="button" class="btn btn-dark btn-block mb-4" @click="alertaContacto()">¡Enviar!</button>
     </form>
     <!-- OFF CANVAS CARRITO -->
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight" id="myBtn">
-        <h4>Mi carrito</h4>
+        <img src="./assets/shopping.png" id="cart-img" alt="">
     </button>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -128,7 +128,10 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <!-- ACA PONER EL CONTENIDO DEL CARRITO -->
+            <ul>
+                <li v-for="producto in productos">{{producto.nombre}}</li>
+
+            </ul> 
         </div>
     </div>
 </body>
