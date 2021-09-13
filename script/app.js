@@ -59,30 +59,24 @@ const app = Vue.createApp({
         quitarProductoCarrito(producto) {
             console.log("Llegamos al método eliminar el producto")
 
-
             if (this.carrito.some(prod => prod._id == producto._id)) {
                 let pos = this.carrito.findIndex(prod => prod._id == producto._id);
                 if (this.carrito[pos]["cantidad"] == 1) {
                     this.carrito.splice(pos, 1)
                     console.log("este producto ya no esta en el carrito")
                     return
-                } else {
-                    this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] - 1;
+                } else if (this.carrito[pos]["cantidad"] == 0) {
+                    return
                 }
-
-            } else {
-                let productoAComprar = {
-                    "_id": producto._id,
-                    "nombre": producto.nombre,
-                    "descripcion": producto.descripcion,
-                    "precio": producto.precio,
-                    "imagen": producto.imagen,
-                    "cantidad": 1
-                }
-                this.carrito.push(productoAComprar);
+                this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] - 1;
             }
-
-
+        },
+        subtotalProducto(producto) {
+            return producto.precio*producto.cantidad
+        },
+        eliminarProducto(producto){
+            let pos = this.carrito.findIndex(prod => prod._id == producto._id);
+            this.carrito.splice(pos, 1)
         }
     },
     computed: {
@@ -107,7 +101,8 @@ const app = Vue.createApp({
             return this.carrito.reduce((acumulador, producto) => {
                 return acumulador += producto.cantidad
             }, 0)
-        }
+        },
+
 
 
 

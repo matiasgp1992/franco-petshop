@@ -242,6 +242,9 @@
      font-size: 2rem;
      padding-bottom: 1rem;
  }
+ .item-7:hover{
+     cursor: pointer;
+ }
 
  .item-8 {
      /* background-color: rgb(69, 168, 77); */

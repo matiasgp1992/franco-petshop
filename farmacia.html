@@ -97,7 +97,7 @@
                                     </svg>
                                     Agregar
                                 </button>
-                                <button type="button" class="btn btn-primary"  @click="quitarProductoCarrito(producto)">
+                                <button type="button" class="btn btn-primary" @click="quitarProductoCarrito(producto)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-cart-dash" viewBox="0 0 16 16">
                                         <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z" />
@@ -133,11 +133,13 @@
                 <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura">
                 </div>
                 <div class="item-3">{{producto.cantidad}}</div>
-                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura" @click="agregarProductoCarrito(producto)">&#43;</button></div>
-                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
-                <div class="item-7">&times;</div>
-                <div class="item-8 align-middle">$900</div>
+                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
+                        @click="agregarProductoCarrito(producto)">&#43;</button></div>
+                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
+                        @click="quitarProductoCarrito(producto)">&minus;</button></div>
+                <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
                 <div class="item-6 align-middle">Subtotal</div>
+                <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
             </div>
         </div>
     </div>
