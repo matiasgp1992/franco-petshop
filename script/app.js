@@ -102,6 +102,11 @@ const app = Vue.createApp({
             } else {
                 this.noProducts = false
             }
+        },
+        totalProductosCarrito() {
+            return this.carrito.reduce((acumulador, producto) => {
+                return acumulador += producto.cantidad
+            }, 0)
         }
 
 
