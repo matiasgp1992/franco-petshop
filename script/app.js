@@ -11,7 +11,9 @@ const app = Vue.createApp({
             carrito: [],
             busqueda: "",
             noProducts: false,
+            isEmptyCart: true,
             carga: true,
+            precioTotal: 0,
             nombreMascota: "Firulais",
             animalesJuego: [
                 {
@@ -27,7 +29,7 @@ const app = Vue.createApp({
                     "src": "./assets/franco.png"
                 },
                 {
-                    "id" : "gaviota",
+                    "id": "gaviota",
                     "src": "./assets/gaviota.png"
                 }
             ],
@@ -45,6 +47,15 @@ const app = Vue.createApp({
             })
             .catch(err => console.error(err.message))
     },
+    mounted() {
+        if (localStorage.getItem('carrito')) {
+            try {
+                this.carrito = JSON.parse(localStorage.getItem('carrito'));
+            } catch (e) {
+                localStorage.removeItem('carrito');
+            }
+        }
+    },
     methods: {
         filtrarProductos() {
             this.productosFarmacia = this.productos.filter(producto => producto.tipo == "Medicamento")
@@ -54,14 +65,26 @@ const app = Vue.createApp({
             alertify.defaults.glossary.title = "¡Qué bien!"
             alertify.alert('Nos vamos a comunicar prontisimo con vos, acordate que estamos en Caballito y podes venir a visitarnos cuando quieras! Atentamente: Franco y sus amigos');
         },
+        alertaStock(producto) {
+            alertify.defaults.glossary.title = "¡Ups!"
+            alertify.alert(`Acabamos de cargar en tu carrito la última unidad de ${producto.nombre}. No te preocupes, ¡ya mismo estamos llamando a nuestro proveedor!`);
+        },
+        guardarCarrito() {
+            const parsed = JSON.stringify(this.carrito);
+            localStorage.setItem('carrito', parsed);
+        },
         agregarProductoCarrito(producto) {
-            console.log("estamos agregando" + producto.nombre)
             if (this.carrito.some(prod => prod._id == producto._id)) {
-                console.log("este producto ya esta en el carrito")
                 let pos = this.carrito.findIndex(prod => prod._id == producto._id);
-                console.log(pos)
-                console.log()
-                this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] + 1;
+                if (this.carrito[pos]["stock"] > 0) {
+                    this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] + 1;
+                    this.carrito[pos]["stock"]--;
+                    this.guardarCarrito();
+                } else if (this.carrito[pos].stock == 0) {
+                    console.log("sin stock")
+                    this.alertaStock(producto) 
+                }
+
             } else {
                 let productoAComprar = {
                     "_id": producto._id,
@@ -69,24 +92,27 @@ const app = Vue.createApp({
                     "descripcion": producto.descripcion,
                     "precio": producto.precio,
                     "imagen": producto.imagen,
-                    "cantidad": 1
+                    "cantidad": 1,
+                    "stock": producto.stock
                 }
                 this.carrito.push(productoAComprar);
+                this.guardarCarrito();
             }
         },
         quitarProductoCarrito(producto) {
-            console.log("Llegamos al método eliminar el producto")
-
             if (this.carrito.some(prod => prod._id == producto._id)) {
                 let pos = this.carrito.findIndex(prod => prod._id == producto._id);
                 if (this.carrito[pos]["cantidad"] == 1) {
                     this.carrito.splice(pos, 1)
-                    console.log("este producto ya no esta en el carrito")
+                    this.carrito[pos]["stock"]++;
+                    this.guardarCarrito();
                     return
                 } else if (this.carrito[pos]["cantidad"] == 0) {
                     return
                 }
                 this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] - 1;
+                this.carrito[pos]["stock"]++;
+                this.guardarCarrito();
             }
         },
         subtotalProducto(producto) {
@@ -97,7 +123,7 @@ const app = Vue.createApp({
             this.carrito.splice(pos, 1)
         },
         mostrarAnimal(animal) {
-            imageSrc = this.animalesJuego.filter(elem=> elem.id == animal)
+            imageSrc = this.animalesJuego.filter(elem => elem.id == animal)
             console.log(imageSrc[0].src)
             this.animalAMostrar = imageSrc[0].src;
         }
@@ -121,14 +147,24 @@ const app = Vue.createApp({
             }
         },
         totalProductosCarrito() {
-            return this.carrito.reduce((acumulador, producto) => {
+            suma = this.carrito.reduce((acumulador, producto) => {
                 return acumulador += producto.cantidad
             }, 0)
+            return suma;
         },
-        escucharWindow(){
-           
-            
+        calcularPrecioTotal() {
+            return this.carrito.reduce((acum, producto) => {
+                return acum += (producto.precio * producto.cantidad)
+            }, 0)
+        },
+        isEmptyCartWatcher() {
+            if (this.totalProductosCarrito == 0) {
+                this.isEmptyCart = true;
+            } else {
+                this.isEmptyCart = false;
+            }
         }
+
     }
 })
 const debug = app.mount("#app")
