@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
                     <h4 class="text-white">Sobre mí</h4>
-                    <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                    <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
                         recomendarles todo lo que hace mi humano.
                         Es increíblemente profesional, sorprendentemente prolijo e infinitamente amigable. No muerde y
                         al primer ladrido suelta unos dulces sarpaaaadooos</p>
@@ -50,15 +50,15 @@
 
 <body class="bg-light" id="app">
     <div class="row text-center">
-        <h1 class="display-4 fw-normal my-5 py-5">¡Bienvenido humano! 🐾</h1>
-        <p class="col-11 lead presentacion mx-5 px-5">Todo el mundo nos pregunta como nació "FRANCO - PET YOP". Quizás
+        <h1 class="display-4 fw-normal my-5 py-2">¡Bienvenido humano! 🐾</h1>
+        <p class="col-11 lead presentacion mx-4 px-4">Todo el mundo nos pregunta como nació "FRANCO - PET YOP". Quizás
             vos no,
             pero te lo queremos contar igual. Todo el amor que teníamos por Franco era demasiado, había que repartirlo
             de manera
             eficiente y urgente. Por eso nos expandimos y decidimos salir de casa y dedicarnos a cuidar,
             divertir y biencriar animales de todo tipo: gatos, ratitas palomas y por supuesto todo tipo de
             franco's.</p>
-        <p class="col-11 lead presentacion mx-5 px-5">Si, si, si....Sabemos que parece algo increíble. Hagamos
+        <p class="col-11 lead presentacion mx-4 px-4">Si, si, si....Sabemos que parece algo increíble. Hagamos
             esto...Buscanos por
             todas partes...¡Ah! No...para...ya hicimos eso por vos...Scrollea un poquito para abajo y vas a encontrar a
             Clientes Contentos. Después de eso, te vas a decir...¡Bueno! ¡Está bien! Son increíbles...pero
@@ -138,7 +138,7 @@
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
     aria-controls="offcanvasRight" id="myBtn">
     <img src="./assets/shopping.png" id="cart-img" alt="">
-    <p class="cantidad-productos">1</p>
+    <p class="cantidad-productos">0</p>
 </button>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -148,14 +148,14 @@
     </div>
     <div class="offcanvas-body">          
         <div v-for="producto in productos" class="contenedor">
-            <div class="item-1 align-middle">{{producto.nombre}}</div>
+            <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
             <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></div>
-            <div class="item-3">1</div>
-            <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
-            <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
+            <div class="item-3">0</div>
+            <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura">&#43;</button></div>
+            <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura">&minus;</button></div>
             <div class="item-7">&times;</div>
-            <div class="item-6 align-middle">$900</div>
-            <div class="item-8 align-middle">Subtotal</div>
+            <div class="item-8 align-middle">$900</div>
+            <div class="item-6 align-middle">Subtotal</div>
         </div>
     </div>
 </div>
@@ -165,8 +165,7 @@
 <div class="container my-5">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
-            <img src="./assets/schnauzer-logo2.png" alt="" id="header-image" data-bs-toggle="collapse"
-                data-bs-target="#navbarHeader">
+            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image" >
 
             <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
         </div>

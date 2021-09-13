@@ -35,6 +35,54 @@ const app = Vue.createApp({
         alertaContacto() {
             alertify.defaults.glossary.title = "¡Qué bien!"
             alertify.alert('Nos vamos a comunicar prontisimo con vos, acordate que estamos en Caballito y podes venir a visitarnos cuando quieras! Atentamente: Franco y sus amigos');
+        },
+        agregarProductoCarrito(producto) {
+            console.log("estamos agregando" + producto.nombre)
+            if (this.carrito.some(prod => prod._id == producto._id)) {
+                console.log("este producto ya esta en el carrito")
+                let pos = this.carrito.findIndex(prod => prod._id == producto._id);
+                console.log(pos)
+                console.log()
+                this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] + 1;
+            } else {
+                let productoAComprar = {
+                    "_id": producto._id,
+                    "nombre": producto.nombre,
+                    "descripcion": producto.descripcion,
+                    "precio": producto.precio,
+                    "imagen": producto.imagen,
+                    "cantidad": 1
+                }
+                this.carrito.push(productoAComprar);
+            }
+        },
+        quitarProductoCarrito(producto) {
+            console.log("Llegamos al método eliminar el producto")
+
+
+            if (this.carrito.some(prod => prod._id == producto._id)) {
+                let pos = this.carrito.findIndex(prod => prod._id == producto._id);
+                if (this.carrito[pos]["cantidad"] == 1) {
+                    this.carrito.splice(pos, 1)
+                    console.log("este producto ya no esta en el carrito")
+                    return
+                } else {
+                    this.carrito[pos]["cantidad"] = this.carrito[pos]["cantidad"] - 1;
+                }
+
+            } else {
+                let productoAComprar = {
+                    "_id": producto._id,
+                    "nombre": producto.nombre,
+                    "descripcion": producto.descripcion,
+                    "precio": producto.precio,
+                    "imagen": producto.imagen,
+                    "cantidad": 1
+                }
+                this.carrito.push(productoAComprar);
+            }
+
+
         }
     },
     computed: {
@@ -54,9 +102,8 @@ const app = Vue.createApp({
             } else {
                 this.noProducts = false
             }
-
-
         }
+
 
 
 

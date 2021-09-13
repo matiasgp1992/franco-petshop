@@ -146,7 +146,8 @@
  }
 
  .img-miniatura {
-     max-width: 8vw!important;
+     min-width: 90%!important;
+     max-width: 7vw!important;
  }
 
  .btn-miniatura {
@@ -154,14 +155,8 @@
      line-height: .5!important;
  }
 
- .td-max-width {
-     max-width: 0rem!important;
- }
+ 
 
- .producto-miniatura {
-     visibility: hidden;
-     width: 0!important;
- }
 
  /* Carrito OFF Canvas */
 
@@ -177,7 +172,7 @@
 
  .item-1 {
      /* background-color: rgb(69, 69, 168); */
-     grid-column: 1/5;
+     grid-column: 1/4;
      grid-row: 1;
      text-align: left;
      align-self: center;
@@ -196,58 +191,56 @@
  }
 
  /* Cantidad */
-
  .item-3 {
      /* background-color: rgb(168, 69, 124); */
      grid-column: 2/4;
      grid-row: 2/3;
      text-align: center;
-     align-self: flex-end;
+     align-self: start;
      font-size: 1.5rem;
      font-weight: 900
  }
 
- /* Suma */
-
+ /* Resta */
  .item-4 {
      /* background-color: rgb(168, 100, 69); */
      grid-column: 2/3;
      text-align: right;
      margin-right: .3rem;
-     align-self: center;
+     align-self: start;
  }
 
- /* Resta */
-
+ /* Suma */
  .item-5 {
      /* background-color: rgb(69, 168, 160); */
      grid-column: 3/4;
      grid-row: 3/4;
      text-align: left;
-     align-self: center;
+     align-self: start;
      margin-left: .3rem;
  }
 
  /* precio subtotal */
-
  .item-6 {
      /* background-color: rgb(69, 168, 77); */
      grid-column: 4/5;
      grid-row: 2/3;
      text-align: center;
-     align-self: center;
+     align-self: start;
+     font-size: 1.2rem;
+
  }
 
- /* titulo subtotal */
-
+ /* eliminar producto */
  .item-7 {
      /* background-color: rgb(168, 69, 143); */
      grid-column: 4/5;
      grid-row: 1/2;
      text-align: center;
-     align-self: baseline;
+     align-self: start;
      font-weight: 600;
-     font-size: 1.5rem;
+     font-size: 2rem;
+     padding-bottom: 1rem;
  }
 
  .item-8 {
@@ -255,5 +248,5 @@
      grid-column: 4/5;
      grid-row: 3/4;
      text-align: center;
-     align-self: center;
+     align-self: start;
  }
