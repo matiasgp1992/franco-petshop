@@ -12,6 +12,7 @@ const app = Vue.createApp({
             carrito: [],
             busqueda: "",
             noProducts: false,
+            carga: true,
             nombreMascota: "Firulais"
         }
     },
@@ -22,6 +23,7 @@ const app = Vue.createApp({
                 this.productos = data.response;
                 this.filtrarProductos();
                 this.busquedaProductos
+                this.carga = false
             })
             .catch(err => console.error(err.message))
     },
@@ -42,7 +44,6 @@ const app = Vue.createApp({
                 this.noProductstoShow
                 return this.productosFiltrados
             }
-            console.log("buscando productos en farmacia")
             this.productosFiltrados = this.productosFarmacia.filter(producto => producto.nombre.toLowerCase().includes(this.busqueda.toLowerCase()))
             this.noProductstoShow
             return this.productosFiltrados

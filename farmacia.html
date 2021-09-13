@@ -57,13 +57,18 @@
                 Franco porque es lo más preciado en nuestras vidas. Nos ponemos responsables y cuidadosos y te traemos
                 los mejores productos de farmacia para tu mascota</p>
         </div>
+        <div v-if="carga">
+            <!-- <img src="./assets/loader.gif" alt="loader gif" id="loader-gif" class="mx-auto d-block"> -->
+        </div>
         <form class="row">
             <div class="col align-self-end" id="search">
                 <label for="busqueda" class="visually-hidden"></label>
-                <input type="text" class="form-control" id="busqueda" placeholder="Buscar producto" v-model="busqueda">
+                <input type="text" class="form-control" id="busqueda" placeholder="Buscar producto" v-model="busqueda"
+                    v-if="!carga">
             </div>
         </form>
-        <div id="noProducto" v-if="noProducts" class="row justify-content-around">
+
+        <div id="noProducto" v-show="noProducts" visibility="hidden" class="row justify-content-around">
             <img src="./assets/noHay.png" alt="cara triste por no hallar productos" id="sadFace" class="col-10 mt-5">
             <p class="col-10 text-center mt-5">Mmm...no tenemos {{busqueda}}...La buena noticia es que podés dejarnos un
                 comentario en nuestra <a href="./contacto.html">página de contacto</a> y podemos hablar con nuestros
@@ -95,21 +100,36 @@
         </div>
     </div>
 
-   <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight" id="myBtn">
         <img src="./assets/shopping.png" id="cart-img" alt="">
     </button>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+            <h4 id="offcanvasRightLabel">Tu carrito tiene: </h4>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <ul>
-                <li v-for="producto in productos">{{producto.nombre}}</li>
-
-            </ul> 
+            <table class="table">
+                <thead>
+                    <tr>Detalle</tr>
+                    <tr>Precio Unitario</tr>
+                    <tr>Cantidad</tr>
+                    <tr>Subtotal</tr>
+                </thead>
+                <tbody>
+                    <tr v-for="producto in productos">
+                        <td><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura"></td>
+                        <td>${{producto.precio}}</td>
+                        <td><button class="btn btn-dark btn-block m-1 text-center">&#43;</button></td>
+                         <td>   <button class="btn btn-dark btn-block m-1">&minus;</button></td>
+                        <td>Subtotal</td>
+                        <td>&times;</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
         </div>
     </div>
 </body>

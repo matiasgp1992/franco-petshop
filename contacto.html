@@ -41,8 +41,8 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <p class="text-muted "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</p>
+            <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
+                data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                 aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,56 +52,56 @@
 </header>
 
 <body class="bg-light" id="app">
-    <div class="row mx-2 m-5">
-        <h4 class="display-4 fw-normal my-2 p-5 text-left">Formulario de contacto</h4>
-        <p class="col-12 lead presentacion m-2 px-5">Qué bueno que hayas llegado hasta acá...Sin mucho más rodeo, abajo
+    <div class="row mx-5 mt-5">
+        <h4 class="display-4 fw-normal my-1 mx-5 px-5 text-left">Formulario de contacto</h4>
+        <p class="col-12 lead presentacion my-1 mx-5 px-5">Qué bueno que hayas llegado hasta acá...Sin mucho más rodeo, abajo
             podés dejarnos tus datos y comentarios para que sigamos en contacto.</p>
 
     </div>
 
-    <form class="m-5 p-5">
-        <div class="row mb-4">
-            <div class="col">
+    <form class="mx-5 p-5">
+        <div class="row m-5">
+            <div class="col nombreYApellido">
                 <div class="form-outline">
-                    <label class="form-label" for="form6Example1">Tu nombre y apellido</label>
-                    <input type="text" id="form6Example1" class="form-control" />
+                    <label class="form-label" for="nombre">Tu nombre y apellido</label>
+                    <input type="text" id="nombre" class="form-control" />
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
-                    <label class="form-label" for="form6Example2">El nombre de tu mascota</label>
-                    <input type="text" id="form6Example2" class="form-control" v-model="nombreMascota" />
+                    <label class="form-label" for="mascota">El nombre de tu mascota</label>
+                    <input type="text" id="mascota" class="form-control" v-model="nombreMascota" />
                 </div>
             </div>
         </div>
 
         <!-- Text input -->
-        <div class="form-outline mb-4">
-            <label class="form-label" for="form6Example3">Paseo o hobbie favorito de {{nombreMascota}}</label>
-            <input type="text" id="form6Example3" class="form-control" />
+        <div class="form-outline m-5">
+            <label class="form-label" for="hobbies">Paseo o hobbie favorito de {{nombreMascota}}</label>
+            <input type="text" id="hobbies" class="form-control" />
         </div>
 
         <!-- Text input -->
-        <div class="form-outline mb-4">
+        <div class="form-outline m-5">
             <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es perro o gato? ¿Quizás otra
                 especie?</label>
             <input type="text" id="form6Example4" class="form-control" />
         </div>
 
         <!-- Email input -->
-        <div class="form-outline mb-4">
+        <div class="form-outline m-5">
             <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico?</label>
             <input type="email" id="form6Example5" class="form-control" />
         </div>
 
         <!-- Number input -->
-        <div class="form-outline mb-4">
+        <div class="form-outline m-5">
             <label class="form-label" for="form6Example6">¿Tu número de teléfono?</label>
             <input type="number" id="form6Example6" class="form-control" />
         </div>
 
         <!-- Message input -->
-        <div class="form-outline mb-4">
+        <div class="form-outline m-5">
             <label class="form-label" for="form6Example7">¿Dudas, comentarios, sugerencias, pedidos? Todo aca abajo
                 ⬇</label>
             <textarea class="form-control" id="form6Example7" rows="4"></textarea>
@@ -114,7 +114,7 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-dark btn-block mb-4" @click="alertaContacto()">¡Enviar!</button>
+        <button type="button" class="btn btn-dark btn-block m-5" @click="alertaContacto()">¡Enviar!</button>
     </form>
     <!-- OFF CANVAS CARRITO -->
     <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"

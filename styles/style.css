@@ -124,6 +124,16 @@
   }
 
   #search {
-      min-width: 30vw!important;
+      min-width: 15vw!important;
       margin-left: 60vw;
   }
+ 
+.nombreYApellido{
+    padding-left: 0!important;
+    padding-right: 0!important;
+
+}
+
+.img-miniatura{
+    max-width: 6vw!important;
+}
