@@ -147,7 +147,6 @@ const app = Vue.createApp({
             this.animalAMostrar = imageSrc[0].src;
         },
         isEmptyCartWatcher() {
-            console.log("entre al empty cart watcher")
             console.log(this.carrito.length == 0)
             if (this.carrito.length == 0) {
                 this.isEmptyCart = true;
