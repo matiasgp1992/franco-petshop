@@ -53,71 +53,73 @@
 </header>
 
 <body class="bg-light" id="app">
-    <div class="row text-center">
-        <h1 class="display-4 fw-normal my-5 py-2">¿Seguís acá humano? 🙆‍♂️</h1>
-        <p class="col-11 lead presentacion mx-4 px-4 text-center">Ya te mostramos todos nuestros productos, dónde
-            estamos y nuestros datos. Pero bueno, ya que seguís acá te proponemos un juego super fácil. Tenés 4
-            opciones,
-            en una está escondido Franco y en las otras un par de sus amigos (y clientes felices nuestros). A ver a
-            quién encontrás primero :)
+    <main>
+        <div class="row text-center m-5">
+            <h1 class="display-4 fw-normal my-5 py-2">¿Seguís acá humano? 🙆‍♂️</h1>
+            <p class="col-11 lead presentacion mx-4 px-4 text-center">Ya te mostramos todos nuestros productos, dónde
+                estamos y nuestros datos. Pero bueno, ya que seguís acá te proponemos un juego super fácil. Tenés 4
+                opciones,
+                en una está escondido Franco y en las otras un par de sus amigos (y clientes felices nuestros). A ver a
+                quién encontrás primero :)
 
-        </p>
-    </div>
-    <div class="contenedor-juego keys" id="centro">
-        <div class="juego-foto">
-            <img :src="animalAMostrar" alt="" class="image-juego">
+            </p>
         </div>
-        <div data-key="65" class="juego-1 key" @click="mostrarAnimal('hamster')">A </div>
-        <div data-key="83" class="juego-2 key" @click="mostrarAnimal('franco')">S</div>
-        <div data-key="68" class="juego-3 key" @click="mostrarAnimal('gato')">D</div>
-        <div data-key="70" class="juego-4 key" @click="mostrarAnimal('gaviota')">F</div>
-
-        <audio data-key="65" src="./sounds/hamster.ogg"></audio>
-        <audio data-key="83" src="./sounds/franco.ogg"></audio>
-        <audio data-key="68" src="./sounds/gato.ogg"></audio>
-        <audio data-key="70" src="./sounds/gaviota.ogg"></audio>
-    </div>
-
-    <!-- OFF CANVAS CARRITO -->
-    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight" id="myBtn">
-        <img src="./assets/shopping.png" id="cart-img" alt="">
-        <p class="cantidad-productos" v-cloak>{{totalProductosCarrito}}</p>
-    </button>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header contenedor">
-            <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-5">Tu carrito está contento: </h4>
-            <transition name="bounce">
-                <div v-if="carrito.length==0">
-                    <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura">
-                    <h4 class="mt-2">Tu carrito está triste (y vacío)</h4>
-                </div>
-            </transition>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div v-for="producto in carrito" class="contenedor">
-                <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura">
-                </div>
-                <div class="item-3">{{producto.cantidad}}</div>
-                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
-                        @click="agregarProductoCarrito(producto)">&#43;</button></div>
-                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
-                        @click="quitarProductoCarrito(producto)">&minus;</button></div>
-                <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
-                <div class="item-6 align-middle">Subtotal</div>
-                <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+        <div class="contenedor-juego keys" id="centro">
+            <div class="juego-foto">
+                <img :src="animalAMostrar" alt="" class="image-juego">
             </div>
-            <div class="row justify-content-between">
-                <p class="col-5 text-right">Total productos: {{totalProductosCarrito}}</p>
-                <p class="col-6 text-right">Precio total: ${{calcularPrecioTotal}} </p>
+            <div data-key="65" class="juego-1 key" @click="mostrarAnimal('hamster')">A </div>
+            <div data-key="83" class="juego-2 key" @click="mostrarAnimal('franco')">S</div>
+            <div data-key="68" class="juego-3 key" @click="mostrarAnimal('gato')">D</div>
+            <div data-key="70" class="juego-4 key" @click="mostrarAnimal('gaviota')">F</div>
+
+            <audio data-key="65" src="./sounds/hamster.ogg"></audio>
+            <audio data-key="83" src="./sounds/franco.ogg"></audio>
+            <audio data-key="68" src="./sounds/gato.ogg"></audio>
+            <audio data-key="70" src="./sounds/gaviota.ogg"></audio>
+        </div>
+
+        <!-- OFF CANVAS CARRITO -->
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight" id="myBtn">
+            <img src="./assets/shopping.png" id="cart-img" alt="">
+            <p class="cantidad-productos" v-cloak>{{totalProductosCarrito}}</p>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header contenedor">
+                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-5">Tu carrito está contento: </h4>
+                <transition name="bounce">
+                    <div v-if="carrito.length==0">
+                        <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura">
+                        <h4 class="mt-2">Tu carrito está triste (y vacío)</h4>
+                    </div>
+                </transition>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div v-for="producto in carrito" class="contenedor">
+                    <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                    <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
+                            class="img-miniatura">
+                    </div>
+                    <div class="item-3">{{producto.cantidad}}</div>
+                    <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
+                            @click="agregarProductoCarrito(producto)">&#43;</button></div>
+                    <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
+                            @click="quitarProductoCarrito(producto)">&minus;</button></div>
+                    <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
+                    <div class="item-6 align-middle">Subtotal</div>
+                    <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+                </div>
+                <div class="row justify-content-between">
+                    <p class="col-5 text-right">Total productos: {{totalProductosCarrito}}</p>
+                    <p class="col-6 text-right">Precio total: ${{calcularPrecioTotal}} </p>
+                </div>
             </div>
         </div>
-    </div>
 
-</body>
 
 <div class="container my-5">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -134,5 +136,7 @@
 <script src="https://unpkg.com/vue@next"></script>
 <script src="./script/alertify.min.js"></script>
 <script src="./script/app.js"></script>
+</main>
+</body>
 
 </html>
