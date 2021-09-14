@@ -11,9 +11,11 @@
  #header-image:hover {
      cursor: pointer;
  }
-h6{
-    font-weight: 600;
-}
+
+ h6 {
+     font-weight: 600;
+ }
+
  h3 {
      font-size: 1.2rem!important;
  }
@@ -42,10 +44,8 @@ h6{
      margin: 0.2em 0em;
  }
 
- .img-producto{
-     max-height: 45vh;
-     max-width: 20vw;
-     min-width: 250px;
+ .img-producto {
+     object-fit: contain;
  }
 
  .img-stock {
@@ -105,9 +105,11 @@ h6{
  .presentacion {
      text-align: justify!important;
  }
-p{
-    text-align: justify;
-}
+
+ p {
+     text-align: justify;
+ }
+
  .cantidad-productos {
      position: fixed;
      bottom: 70px;
@@ -192,9 +194,7 @@ p{
      font-style: italic;
      font-weight: 600;
  }
-
  /* Imagen */
-
  .item-2 {
      /* background-color: rgb(69, 168, 82); */
      grid-column: 1/2;
@@ -204,7 +204,6 @@ p{
  }
 
  /* Cantidad */
-
  .item-3 {
      /* background-color: rgb(168, 69, 124); */
      grid-column: 2/4;
@@ -216,7 +215,6 @@ p{
  }
 
  /* Resta */
-
  .item-4 {
      /* background-color: rgb(168, 100, 69); */
      grid-column: 2/3;
@@ -226,7 +224,6 @@ p{
  }
 
  /* Suma */
-
  .item-5 {
      /* background-color: rgb(69, 168, 160); */
      grid-column: 3/4;
@@ -237,7 +234,6 @@ p{
  }
 
  /* precio subtotal */
-
  .item-6 {
      /* background-color: rgb(69, 168, 77); */
      grid-column: 4/5;
@@ -248,7 +244,6 @@ p{
  }
 
  /* X para eliminar producto */
-
  .item-7 {
      /* background-color: rgb(168, 69, 143); */
      grid-column: 4/5;

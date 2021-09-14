@@ -53,14 +53,14 @@
 </header>
 
 <body class="bg-light" id="app">
-    <main class="m-5">
+    <main class="m-sm-5 m-md-5">
     <div class="row  mx-5 mt-5">
         <h4 class="display-4 fw-normal my-1 mx-2 px-3 text-left">Formulario de contacto</h4>
         <p class="col-12 lead presentacion my-1 mx-2 px-3">Qué bueno que hayas llegado hasta acá...Sin mucho más rodeo, abajo
             podés dejarnos tus comentarios para que sigamos en contacto.</p>
     </div>
 
-    <form class="mx-sm-0 mx-md-4 mX-5 p-4">
+    <form class="m-sm-0 mx-md-4 mx-lg-5 p-lg-4">
         <div class="row m-sm-0 m-5 pb-4">
             <div class="col nombreYApellido">
                 <div class="form-outline">
@@ -126,19 +126,21 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header contenedor">
-            <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-5">Tu carrito está contento: </h4>
+            <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="mt-2 col-8">Tu carrito tiene los siguientes productos </h4>
             <transition name="bounce">
-                <div v-if="carrito.length==0">
-                    <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura">
-                    <h4 class="mt-2">Tu carrito está triste (y vacío)</h4>
+                <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row">
+                    <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura col-3">
+                    <h4 class="mt-2 col-8">Tu carrito está vacío</h4>
                 </div>
             </transition>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <div v-for="producto in carrito" class="contenedor">
                 <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto" class="img-miniatura">
+                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
+                        class="img-miniatura">
                 </div>
                 <div class="item-3">{{producto.cantidad}}</div>
                 <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
