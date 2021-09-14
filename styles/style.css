@@ -97,7 +97,9 @@
  .presentacion {
      text-align: justify!important;
  }
-
+p{
+    text-align: justify;
+}
  .cantidad-productos {
      position: fixed;
      bottom: 70px;
