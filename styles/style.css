@@ -42,12 +42,18 @@ h6{
      margin: 0.2em 0em;
  }
 
+ .img-producto{
+     max-height: 45vh;
+     max-width: 20vw;
+     min-width: 250px;
+ }
+
  .img-stock {
      position: absolute;
      right: 1vw;
      top: 1vh;
      height: 15vh!important;
-     width: 15vh;
+     max-width: 15vh;
  }
 
  .imagen-container {
