@@ -11,7 +11,9 @@
  #header-image:hover {
      cursor: pointer;
  }
-
+h6{
+    font-weight: 600;
+}
  h3 {
      font-size: 1.2rem!important;
  }
