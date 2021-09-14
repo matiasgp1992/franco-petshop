@@ -3,8 +3,6 @@
      padding: 0,
  }
 
-
-
  #header-image, #footer-image {
      width: 100px !important;
      height: auto !important;
@@ -14,9 +12,10 @@
      cursor: pointer;
  }
 
- h3{
+ h3 {
      font-size: 1.2rem!important;
  }
+
  body {
      height: 100vh;
      background-color: wheat
@@ -82,7 +81,6 @@
  #myCarousel {
      height: 50vh!important;
  }
-
 
  .card-text {
      text-align: justify;
@@ -159,6 +157,11 @@
  }
 
  /* Carrito OFF Canvas */
+
+ .carrito-miniatura {
+     max-width: 5vw;
+     min-width: 5vw;
+ }
 
  .contenedor {
      display: grid;
@@ -296,7 +299,7 @@
      font-size: 1.2rem;
  }
 
- .keys > .key {
+ .keys>.key {
      cursor: pointer;
  }
 
@@ -343,23 +346,29 @@
  }
 
  .bounce-enter-active {
-    animation: bounce-in .5s;
-  }
-  .bounce-leave-active {
-    animation: bounce-in .5s reverse;
-  }
-  @keyframes bounce-in {
-    0% {
-      transform: scale(0);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+     animation: bounce-in .5s;
+ }
 
-  [v-cloak] {
-    display: none;
-  }
+ .bounce-leave-active {
+     animation: bounce-in .5s reverse;
+ }
+
+ @keyframes bounce-in {
+     0% {
+         transform: scale(0);
+     }
+     50% {
+         transform: scale(1.5);
+     }
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ [v-cloak] {
+     display: none;
+ }
+
+ p>span {
+     font-weight: 500;
+ }

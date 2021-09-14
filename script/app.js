@@ -1,3 +1,4 @@
+
 const endpoint = `https://apipetShop.herokuapp.com/api/articulos`
 let seccion = document.querySelector("header").id
 // VUE
@@ -43,7 +44,7 @@ const app = Vue.createApp({
                 this.productos = data.response;
                 this.filtrarProductos();
                 this.busquedaProductos
-                this.carga = false
+                this.carga = !this.carga
             })
             .catch(err => console.error(err.message))
     },
@@ -55,6 +56,7 @@ const app = Vue.createApp({
                 localStorage.removeItem('carrito');
             }
         }
+       
     },
     methods: {
         filtrarProductos() {
@@ -74,6 +76,7 @@ const app = Vue.createApp({
             localStorage.setItem('carrito', parsed);
         },
         agregarProductoCarrito(producto) {
+
             if (this.carrito.some(prod => prod._id == producto._id)) {
                 let pos = this.carrito.findIndex(prod => prod._id == producto._id);
                 if (this.carrito[pos]["stock"] > 0) {
