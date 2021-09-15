@@ -34,7 +34,8 @@ const app = Vue.createApp({
                     "src": "./assets/gaviota.png"
                 }
             ],
-            animalAMostrar: ""
+            animalAMostrar: "",
+            formElements: ["", ""]
         }
     },
     created() {
@@ -189,7 +190,15 @@ const app = Vue.createApp({
             return this.carrito.reduce((acum, producto) => {
                 return acum += (producto.precio * producto.cantidad)
             }, 0)
+        },
+        habilitar(){
+            if(this.formElements.every(element=> element !== "")){
+                return false
+            } else {
+                return true
+            }
         }
+
 
 
     }
