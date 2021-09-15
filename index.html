@@ -25,7 +25,8 @@
                         <h4 class="text-white">Sobre mí</h4>
                         <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
                             recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces
+                            riquisimos!
                         </p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
@@ -37,7 +38,7 @@
                                     data-bs-target="#offcanvasRight">Tu Carrito</a></li>
                             <li><a href="./contacto.html" class="text-white">Contacto</a></li>
                             <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
-    
+
                         </ul>
                     </div>
                 </div>
@@ -56,7 +57,8 @@
     </header>
     <main class="m-5">
         <div class="row text-center py-5 justify-content-center">
-            <h1 class="display-4 fw-normal my-5 py-2 "><a href="./juego.html" class="text-black">¡Bienvenido humano! 🐾</a></h1>
+            <h1 class="display-4 fw-normal my-5 py-2 "><a href="./juego.html" class="text-black">¡Bienvenido humano!
+                    🐾</a></h1>
             <p class="col-11 lead presentacion mx-4 px-4">Todo el mundo nos pregunta como nació "FRANCO - PET SHOP".
                 Todo el amor que tenemos por Franco hay que repartirlo de manera eficiente y urgente. Por eso nos
                 expandimos y decidimos salir de casa y dedicarnos a cuidar, divertir y biencriar animales de todo tipo:
@@ -137,64 +139,28 @@
                 width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
 
-        <!-- OFF CANVAS CARRITO -->
-        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight" id="myBtn">
-            <img src="./assets/shopping.png" id="cart-img" alt="">
-            <p class="cantidad-productos" v-cloak>{{totalProductosCarrito}}</p>
-        </button>
+<!-- Quite el offcanvas del carrito del main, queda arriba en el header -->
+<!-- Logo flotante de perrito feliz va solo en pagina jugueteria y farmacia -->
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header contenedor">
-                <h6 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-12 align-self-end">Tu carrito tiene los siguientes productos </h6>
-                <transition name="bounce">
-                    <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row">
-                        <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura col-3">
-                        <h4 class="mt-2 col-8">Tu carrito está vacío</h4>
-                    </div>
-                </transition>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div v-for="producto in carrito" class="contenedor">
-                    <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-                    <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
-                            class="img-miniatura">
-                    </div>
-                    <div class="item-3">{{producto.cantidad}}</div>
-                    <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
-                            @click="agregarProductoCarrito(producto)">&#43;</button></div>
-                    <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
-                            @click="quitarProductoCarrito(producto)">&minus;</button></div>
-                    <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
-                    <div class="item-6 align-middle">Subtotal</div>
-                    <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
-                </div>
-                <div class="row justify-content-between">
-                    <p class="col-5 text-right"><span> Total productos:</span> {{totalProductosCarrito}}</p>
-                    <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
-                </div>
-            </div>
-        </div>
     </main>
 
-<div class="container my-5">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
+    <div class="container my-5">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
 
-            <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
-        </div>
-    </footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-<script src="https://unpkg.com/vue@next"></script>
-<script src="./script/alertify.min.js"></script>
-<script src="./script/app.js"></script>
+                <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./script/alertify.min.js"></script>
+    <script src="./script/app.js"></script>
 </body>
 <!-- prueba push -->
 <!-- prueba rodri -->
+
 </html>
