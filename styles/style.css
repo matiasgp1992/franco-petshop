@@ -11,6 +11,7 @@ body {
 }
 
 header{
+    position: fixed;
     background-color: #212529;
     width: 100%;
     height: 18vh;
@@ -111,6 +112,11 @@ header > .contenedor_logo_titulo > h3{
     height: auto !important;
 }
 
+
+
+ h1>a {
+     text-decoration-line: none;
+ }
 
  #header-image:hover {
      cursor: pointer;
@@ -231,14 +237,10 @@ header > .contenedor_logo_titulo > h3{
 
  #myBtn {
      position: fixed;
-     /* Fixed/sticky position */
-     bottom: 20px;
-     /* Place the button at the bottom of the page */
+     bottom: 20px;  
      left: 30px;
-     /* Place the button 30px from the right */
      z-index: 99;
      cursor: pointer;
-     /* Add a mouse pointer on hover */
      box-shadow: none!important;
  }
 
@@ -253,11 +255,6 @@ header > .contenedor_logo_titulo > h3{
  #cart-img {
      max-width: 50px;
      z-index: -2;
- }
-
- #search {
-     min-width: 15vw!important;
-     margin-left: 60vw;
  }
 
  .nombreYApellido {
@@ -282,7 +279,6 @@ header > .contenedor_logo_titulo > h3{
      font-weight: 900;
      background-color: transparent;
  }
-
 
  /* Carrito OFF Canvas */
 
@@ -497,10 +493,19 @@ header > .contenedor_logo_titulo > h3{
  [v-cloak] {
      display: none;
  }
+/* <<<<<<< HEAD */
 /* Modifica precio y cantidad total en offcanvas y precio y cantidad en cards */
  p>span,span>p {
      font-weight: 500;
  }
+#busqueda,#search {
+    width: 50vw!important;
+    margin-left: 1vw!important;
+}
+
+.album{
+   width:100%!important;
+}
 
 @media only screen and (min-width: 768px){
     header > .contenedor_logo_titulo{
@@ -550,17 +555,12 @@ header > .contenedor_logo_titulo > h3{
     .contenedor_sobre_mi{
         width:50% !important;
     }
+    #busqueda {
+        width: 20vw!important;
+    }
 
 
-
-
-
-
-
-
-
-    
 }
- /* 768 a 992 */
 
- /* 992 en adelante */
+
+
