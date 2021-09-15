@@ -66,7 +66,45 @@
         </div>
 
         <!-- OFF CANVAS CARRITO -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header contenedor bg-dark">
+                <button type="button" data-bs-dismiss="offcanvas" aria-label="Close">&times;</button>
+                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-12 text-center text-white">
+                    Tu carrito tiene los siguientes productos </h4>
+                <transition name="custom-classes-transition" enter-active-class="animated tada">
+                    <h4 class="mt-2 col-12  text-center text-white" v-if="carrito.length==0">Tu carrito está vacío</h4>
+                </transition>
+            </div>
+            <section class="offcanvas-body">
+                <transition name="custom-classes-transition" enter-active-class="animated bounceInLeft">
+                    <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row justify-content-center">
+                        <img src="./assets/carrito-triste.png" alt="icono carrito triste"
+                            class="carrito-miniatura col-8">
+                    </div>
+                </transition>
 
+                <div v-if="!carrito.length==0">
+                    <div v-for="producto in carrito" class="contenedor" :key="producto._id">
+                        <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                        <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
+                                class="img-miniatura">
+                        </div>
+                        <div class="item-3">{{producto.cantidad}}</div>
+                        <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
+                                @click="agregarProductoCarrito(producto)">&#43;</button></div>
+                        <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
+                                @click="quitarProductoCarrito(producto)">&minus;</button></div>
+                        <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
+                        <div class="item-6 align-middle">Subtotal</div>
+                        <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <p class="col-6 text-right"><span>Total productos:</span> {{totalProductosCarrito}}</p>
+                        <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
 
 
