@@ -54,9 +54,9 @@
             </div>
         </div>
     </header>
-    <main v-show="!carga" class="m-5">
+    <main v-show="!carga" class="mt-5">
         <div class="container">
-            <div class="col-11 mx-2 py-5 text-center">
+            <div class="col-12 mx-2 pt-5 text-center">
                 <h1 class="display-4 fw-normal m-5 text-center">¡La jugueteria de Franco! 🐾</h1>
                 <p class="col-12 lead presentacion text-justify">Divertirse siempre fue importante para todos, y
                     nuestras
@@ -86,7 +86,7 @@
             <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col" v-for="producto in busquedaProductos" :key="producto._id">
+                        <div class="col" v-for="producto in busquedaProductos" :key="producto._id" class="tamano-card">
                             <div class="card shadow-sm">
                                 <img v-bind:src="producto.imagen" alt="imagen de producto" class="img-producto">
                                 <img src="./assets/isStock.png" alt="" class="img-stock" v-if="producto.stock<5">

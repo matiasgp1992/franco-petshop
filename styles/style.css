@@ -410,6 +410,11 @@
      margin-left: 1vw!important;
  }
 
+.album{
+    width:100%!important;
+}
+
+
  @media only screen and (min-width: 768px) {
      #busqueda {
          width: 20vw!important;
