@@ -28,7 +28,8 @@
                         <h4 class="text-white">Sobre mí</h4>
                         <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
                             recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces
+                            riquisimos!
                         </p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
@@ -40,7 +41,7 @@
                                     data-bs-target="#offcanvasRight">Tu Carrito</a></li>
                             <li><a href="./contacto.html" class="text-white">Contacto</a></li>
                             <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
-    
+
                         </ul>
                     </div>
                 </div>
@@ -61,7 +62,8 @@
         <div class="container">
             <div class="col-sm-11 mx-2 py-5 text-center">
                 <h1 class="display-4 fw-normal m-xs-0 m-5 text-center">Una farmacia que cuida tu mascota...</h1>
-                <p class="col-sm-12 lead presentacion text-justify">Ojo al piojo que no todo es diversión. Nos gusta mimar
+                <p class="col-sm-12 lead presentacion text-justify">Ojo al piojo que no todo es diversión. Nos gusta
+                    mimar
                     de
                     Franco porque es lo más preciado en nuestras vidas. Nos ponemos responsables y cuidadosos y te
                     traemos
@@ -73,7 +75,7 @@
             <form class="row">
                 <div class="col align-self-end" id="search">
                     <label for="busqueda" class="visually-hidden"></label>
-                    <input type="text" class="form-control" id="busqueda" placeholder="Buscar producto"
+                    <input type="text" class="form-control pl-xs-5" id="busqueda" placeholder="Buscar producto"
                         v-model="busqueda">
                 </div>
             </form>
@@ -113,7 +115,6 @@
                                             </svg>
                                             Agregar
                                         </button>
-
                                         <button type="button" class="btn btn-dark"
                                             @click="quitarProductoCarrito(producto)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -125,11 +126,9 @@
                                             Quitar
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -157,7 +156,7 @@
                             class="carrito-miniatura col-8">
                     </div>
                 </transition>
-               
+
                 <div v-if="!carrito.length==0">
                     <div v-for="producto in carrito" class="contenedor" :key="producto._id">
                         <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
