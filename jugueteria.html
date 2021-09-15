@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/58d99c8dac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -21,30 +22,32 @@
         <a href="index.html" class="contenedor_logo_titulo">
             <img src="./assets/schnauzer-logo2.png" alt="logo" id="header-image">
             <h3 class="">FRANCO PET-SHOP</h3>
-        </a>  
+        </a>
 
         <input type="checkbox" id="toggle_navbar">
         <label for="toggle_navbar">
             <span id="open_toggle">&equiv;</span>
             <span id="close_toggle">&#10006;</span>
         </label>
-    
+
         <div class="contenedor_navbar_shoppingBag">
-          <nav id="navbar">
-            <a href="./index.html" class="link_active">INICIO</a>
-            <a href="./jugueteria.html">JUGUETES</a>
-            <a href="./farmacia.html">FARMACIA</a>
-            <a href="./contacto.html">CONTACTENOS</a>
-            </nav> 
-            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <i class="fas fa-shopping-bag shopping-bag"></i>    
+            <nav id="navbar">
+                <a href="./index.html" class="link_active">INICIO</a>
+                <a href="./jugueteria.html">JUGUETES</a>
+                <a href="./farmacia.html">FARMACIA</a>
+                <a href="./contacto.html">CONTACTENOS</a>
+            </nav>
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">
+                <i class="fas fa-shopping-bag shopping-bag"></i>
             </button>
         </div>
     </header>
     <main v-show="!carga" class="pt-5">
         <div class="container pt-5">
             <div class="col-12 mx-2 pt-5 text-center">
-                <h1 class="display-4 fw-normal my-5 pb-2 pt-5"><a href="./juego.html" class="text-black">¡La jugueteria de Franco! 🐾</a></h1>
+                <h1 class="display-4 fw-normal my-5 pb-2 pt-5"><a href="./juego.html" class="text-black">¡La jugueteria
+                        de Franco! 🐾</a></h1>
                 <p class="col-12 lead presentacion text-justify">Divertirse siempre fue importante para todos, y
                     nuestras
                     mascotas no se
@@ -166,37 +169,39 @@
             </section>
         </div>
 
-    <footer class=" bg-dark d-flex flex-column justify-content-between align-items-center border-top p-4" id="footer"  v-show="!carga">
+        <footer class=" bg-dark d-flex flex-column justify-content-between align-items-center border-top p-4"
+            id="footer" v-show="!carga">
 
-        <div class="d-flex justify-content-center align-items-center contenedores_laterales">
-            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
-        </div>
-
-        <div class=" d-flex flex-column text-center contenedor_sobre_mi">
-            <h4 class="text-white">SOBRE MI
-                <!-- SOBRE MI-->
-            </h4>
-            <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
-            </p>
-        </div>
-
-        <div class=" d-flex flex-column text-center justify-content-between contenedores_laterales">
-            <h4 class="text-white">MIS REDES
-                <!-- MIS REDES-->
-            </h4>
-
-            <div class="d-flex justify-content-between w-100 mx-auto contenedor_mis_redes">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <div class="d-flex justify-content-center align-items-center contenedores_laterales">
+                <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
             </div>
 
-            <span class="text-muted">F R A N C O | PetYop &copy; 2021</span>
+            <div class=" d-flex flex-column text-center contenedor_sobre_mi">
+                <h4 class="text-white">SOBRE MI
+                    <!-- SOBRE MI-->
+                </h4>
+                <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página
+                    para
+                    recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                    prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                </p>
+            </div>
 
-        </div>
-    </footer>
+            <div class=" d-flex flex-column text-center justify-content-between contenedores_laterales">
+                <h4 class="text-white">MIS REDES
+                    <!-- MIS REDES-->
+                </h4>
+
+                <div class="d-flex justify-content-between w-100 mx-auto contenedor_mis_redes">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+
+                <span class="text-muted">F R A N C O | PetYop &copy; 2021</span>
+
+            </div>
+        </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
             crossorigin="anonymous"></script>
