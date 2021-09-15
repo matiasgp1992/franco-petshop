@@ -54,128 +54,131 @@
 
 <body class="bg-light" id="app">
     <main class="m-sm-5 m-md-5">
-    <div class="row  mx-5 mt-5">
-        <h4 class="display-4 fw-normal my-1 mx-2 px-3 text-left">Formulario de contacto</h4>
-        <p class="col-12 lead presentacion my-1 mx-2 px-3">Qué bueno que hayas llegado hasta acá...Sin mucho más rodeo, abajo
-            podés dejarnos tus comentarios para que sigamos en contacto.</p>
-    </div>
+        <div class="row  mx-5 mt-5">
+            <h4 class="display-4 fw-normal my-1 mx-2 px-3 text-left">Formulario de contacto</h4>
+            <p class="col-12 lead presentacion my-1 mx-2 px-3">Qué bueno que hayas llegado hasta acá...Sin mucho más
+                rodeo, abajo
+                podés dejarnos tus comentarios para que sigamos en contacto.</p>
+        </div>
 
-    <form class="m-sm-0 mx-md-4 mx-lg-5 p-lg-4">
-        <div class="row m-sm-0 m-5 pb-4">
-            <div class="col nombreYApellido">
-                <div class="form-outline">
-                    <label class="form-label" for="nombre">Tu nombre y apellido</label>
-                    <input type="text" id="nombre" class="form-control" />
+        <form class="m-sm-0 mx-md-4 mx-lg-5 p-lg-4">
+            <div class="row m-sm-0 m-5 pb-4">
+                <div class="col nombreYApellido">
+                    <div class="form-outline">
+                        <label class="form-label" for="nombre">Tu nombre y apellido</label>
+                        <input type="text" id="nombre" class="form-control" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="mascota">¿El de tu mascota?</label>
+                        <input type="text" id="mascota" class="form-control" v-model="nombreMascota" />
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-outline">
-                    <label class="form-label" for="mascota">¿El de tu mascota?</label>
-                    <input type="text" id="mascota" class="form-control" v-model="nombreMascota" />
+
+            <!-- Text input -->
+            <div class="form-outline m-sm-0 m-5 pb-4">
+                <label class="form-label" for="hobbies">Paseo o hobbie favorito de {{nombreMascota}}</label>
+                <input type="text" id="hobbies" class="form-control" />
+            </div>
+
+            <!-- Text input -->
+            <div class="form-outline m-sm-0 m-5 pb-4">
+                <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es perro o gato? ¿Quizás otra
+                    especie?</label>
+                <input type="text" id="form6Example4" class="form-control" />
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline m-sm-0 m-5 pb-4">
+                <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico?</label>
+                <input type="email" id="form6Example5" class="form-control" />
+            </div>
+
+            <!-- Number input -->
+            <fieldset class="form-outline m-sm-0 m-5 pb-4">
+                <label class="form-label" for="form6Example6">¿Tu número de teléfono?</label>
+                <input type="number" id="form6Example6" class="form-control" required/>
+            </fieldset>
+
+            <!-- Message input -->
+            <div class="form-outline m-sm-0 m-5 pb-4">
+                <label class="form-label" for="form6Example7">¿Dudas, comentarios, sugerencias, pedidos? Todo aca abajo
+                    ⬇</label>
+                <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check d-flex justify-content-center mb-4">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
+                <label class="form-check-label" for="form6Example8"> ¿Te gustaría recibir novedades de Franco? </label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="button" class="btn btn-dark btn-block m-5" @click="alertaContacto()">¡Enviar!</button>
+        </form>
+        <!-- OFF CANVAS CARRITO -->
+        <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight" id="myBtn">
+            <img src="./assets/shopping.png" id="cart-img" alt="">
+            <p class="cantidad-productos" v-cloak>{{totalProductosCarrito}}</p>
+        </button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header contenedor">
+                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="mt-2 col-8">Tu carrito tiene los
+                    siguientes productos </h4>
+                <transition name="bounce">
+                    <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row">
+                        <img src="./assets/carrito-triste.png" alt="icono carrito triste"
+                            class="carrito-miniatura col-3">
+                        <h4 class="mt-2 col-8">Tu carrito está vacío</h4>
+                    </div>
+                </transition>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div v-for="producto in carrito" class="contenedor">
+                    <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                    <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
+                            class="img-miniatura">
+                    </div>
+                    <div class="item-3">{{producto.cantidad}}</div>
+                    <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
+                            @click="agregarProductoCarrito(producto)">&#43;</button></div>
+                    <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
+                            @click="quitarProductoCarrito(producto)">&minus;</button></div>
+                    <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
+                    <div class="item-6 align-middle">Subtotal</div>
+                    <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+                </div>
+                <div class="row justify-content-between">
+                    <p class="col-5 text-right"><span> Total productos:</span> {{totalProductosCarrito}}</p>
+                    <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
                 </div>
             </div>
         </div>
 
-        <!-- Text input -->
-        <div class="form-outline m-sm-0 m-5 pb-4">
-            <label class="form-label" for="hobbies">Paseo o hobbie favorito de {{nombreMascota}}</label>
-            <input type="text" id="hobbies" class="form-control" />
-        </div>
+        <div class="container my-5">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <img src="./assets/schnauzer-logo2.png" alt="" id="header-image" data-bs-toggle="collapse"
+                        data-bs-target="#navbarHeader">
 
-        <!-- Text input -->
-        <div class="form-outline m-sm-0 m-5 pb-4">
-            <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es perro o gato? ¿Quizás otra
-                especie?</label>
-            <input type="text" id="form6Example4" class="form-control" />
-        </div>
-
-        <!-- Email input -->
-        <div class="form-outline m-sm-0 m-5 pb-4">
-            <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico?</label>
-            <input type="email" id="form6Example5" class="form-control" />
-        </div>
-
-        <!-- Number input -->
-        <div class="form-outline m-sm-0 m-5 pb-4">
-            <label class="form-label" for="form6Example6">¿Tu número de teléfono?</label>
-            <input type="number" id="form6Example6" class="form-control" />
-        </div>
-
-        <!-- Message input -->
-        <div class="form-outline m-sm-0 m-5 pb-4">
-            <label class="form-label" for="form6Example7">¿Dudas, comentarios, sugerencias, pedidos? Todo aca abajo
-                ⬇</label>
-            <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-        </div>
-
-        <!-- Checkbox -->
-        <div class="form-check d-flex justify-content-center mb-4">
-            <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label class="form-check-label" for="form6Example8"> ¿Te gustaría recibir novedades de Franco? </label>
-        </div>
-
-        <!-- Submit button -->
-        <button type="button" class="btn btn-dark btn-block m-5" @click="alertaContacto()">¡Enviar!</button>
-    </form>
-    <!-- OFF CANVAS CARRITO -->
-    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight" id="myBtn">
-        <img src="./assets/shopping.png" id="cart-img" alt="">
-        <p class="cantidad-productos" v-cloak>{{totalProductosCarrito}}</p>
-    </button>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header contenedor">
-            <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="mt-2 col-8">Tu carrito tiene los siguientes productos </h4>
-            <transition name="bounce">
-                <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row">
-                    <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura col-3">
-                    <h4 class="mt-2 col-8">Tu carrito está vacío</h4>
+                    <span class="text-muted">| F R A N C O | PetShop &copy; 2021</span>
                 </div>
-            </transition>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div v-for="producto in carrito" class="contenedor">
-                <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-                <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
-                        class="img-miniatura">
-                </div>
-                <div class="item-3">{{producto.cantidad}}</div>
-                <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
-                        @click="agregarProductoCarrito(producto)">&#43;</button></div>
-                <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
-                        @click="quitarProductoCarrito(producto)">&minus;</button></div>
-                <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
-                <div class="item-6 align-middle">Subtotal</div>
-                <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
-            </div>
-            <div class="row justify-content-between">
-                <p class="col-5 text-right"><span> Total productos:</span> {{totalProductosCarrito}}</p>
-                <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
-            </div>
-        </div>
-    </div>
 
-<div class="container my-5">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <img src="./assets/schnauzer-logo2.png" alt="" id="header-image" data-bs-toggle="collapse"
-                data-bs-target="#navbarHeader">
-
-            <span class="text-muted">| F R A N C O | PetShop &copy; 2021</span>
+            </footer>
         </div>
-
-    </footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-<script src="https://unpkg.com/vue@next"></script>
-<script src="./script/alertify.min.js"></script>
-<script src="./script/app.js"></script>
-</main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="./script/alertify.min.js"></script>
+        <script src="./script/app.js"></script>
+    </main>
 </body>
 
 </html>

@@ -12,6 +12,11 @@
      cursor: pointer;
  }
 
+ .offcanvas-header {
+     height: 14vh!important;
+     background-color: black;
+ }
+
  h6 {
      font-weight: 600;
  }
@@ -168,11 +173,21 @@
      line-height: .5!important;
  }
 
+ .offcanvas-header>button {
+     border: none!important;
+     color: white!important;
+     font-size: 2rem;
+     font-weight: 900;
+     background-color: transparent;
+ }
+
+
  /* Carrito OFF Canvas */
 
  .carrito-miniatura {
-     max-width: 5vw;
-     min-width: 5vw;
+     margin-top: 5rem!important;
+     min-width: 1vw;
+     opacity: 55%;
  }
 
  .contenedor {
@@ -194,7 +209,9 @@
      font-style: italic;
      font-weight: 600;
  }
+
  /* Imagen */
+
  .item-2 {
      /* background-color: rgb(69, 168, 82); */
      grid-column: 1/2;
@@ -204,6 +221,7 @@
  }
 
  /* Cantidad */
+
  .item-3 {
      /* background-color: rgb(168, 69, 124); */
      grid-column: 2/4;
@@ -215,6 +233,7 @@
  }
 
  /* Resta */
+
  .item-4 {
      /* background-color: rgb(168, 100, 69); */
      grid-column: 2/3;
@@ -224,6 +243,7 @@
  }
 
  /* Suma */
+
  .item-5 {
      /* background-color: rgb(69, 168, 160); */
      grid-column: 3/4;
@@ -234,6 +254,7 @@
  }
 
  /* precio subtotal */
+
  .item-6 {
      /* background-color: rgb(69, 168, 77); */
      grid-column: 4/5;
@@ -244,6 +265,7 @@
  }
 
  /* X para eliminar producto */
+
  .item-7 {
      /* background-color: rgb(168, 69, 143); */
      grid-column: 4/5;
@@ -373,7 +395,13 @@
  [v-cloak] {
      display: none;
  }
-
- p>span {
+/* Modifica precio y cantidad total en offcanvas y precio y cantidad en cards */
+ p>span,span>p {
      font-weight: 500;
  }
+
+ /* 320 a 768 */
+
+ /* 768 a 992 */
+
+ /* 992 en adelante */
