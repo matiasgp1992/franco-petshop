@@ -5,6 +5,10 @@
      box-sizing: border-box;
  }
 
+ [v-cloak] {
+     display: none;
+ }
+
  body {
      height: 100vh;
      background-color: wheat
@@ -489,10 +493,6 @@
      }
  }
 
- [v-cloak] {
-     display: none;
- }
-
  /* <<<<<<< HEAD */
 
  /* Modifica precio y cantidad total en offcanvas y precio y cantidad en cards */
@@ -544,11 +544,11 @@
      padding: 1rem
  }
 
- .chau-carrousel{
+ .chau-carrousel {
      display: none!important;
  }
 
- .fab{
+ .fab {
      color: white!important;
  }
 
@@ -614,10 +614,9 @@
  }
 
  @media only screen and (min-width: 900px) {
-
-    .chau-carrousel{
-        display: block!important;
-    }
+     .chau-carrousel {
+         display: block!important;
+     }
      .contenedor_navbar_shoppingBag {
          width: 75%;
      }
