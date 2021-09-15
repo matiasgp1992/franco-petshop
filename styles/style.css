@@ -1,20 +1,118 @@
  * {
-     margin: 0;
-     padding: 0,
- }
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+   box-sizing: border-box;
+}
 
- header {
-     position: fixed;
-     width: 100%;
-     top: 0;
-     right: 0;
-     z-index: 1;
- }
+body {
+     height: 100vh;
+     background-color: wheat
+}
 
- #header-image, #footer-image {
-     width: 100px !important;
-     height: auto !important;
- }
+header{
+    position: fixed;
+    background-color: #212529;
+    width: 100%;
+    height: 18vh;
+    padding: 1rem 1.5rem;
+    border-bottom: solid 3px #e6e2e2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* toggle botons */
+#toggle_navbar{
+    display: none;
+}
+
+label[for="toggle_navbar"] #open_toggle{
+    font-size:2.5rem;
+    color: white;
+}
+
+label[for="toggle_navbar"] #close_toggle{
+    display: none;
+    font-size:1.5rem;
+    color: white;
+
+}
+
+#toggle_navbar:checked + label #open_toggle{
+    display: none;
+}
+
+#toggle_navbar:checked + label #close_toggle{
+    display: block;
+}
+
+#navbar{
+    width: 100vw;
+    padding: 1rem;
+    background-color: #1f2325;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    z-index: 1;
+    transform: translateY(-200%);
+    transition: all 400ms linear;
+}
+
+#toggle_navbar:checked ~ div #navbar{
+    transform: translateY(0);
+}
+
+#navbar a ~ a{
+    margin-top: 1rem;
+}
+
+#navbar a{
+    letter-spacing: 2px;
+    color: white;
+    transition: all 300ms;
+    text-decoration: none;
+}
+
+#navbar > .link_active{
+    border-bottom:1px solid;
+    color: #ccc;
+}
+
+header > .contenedor_logo_titulo{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header .contenedor_logo_titulo img{
+    width: 80px;
+}
+
+header > .contenedor_logo_titulo > h3{
+    color:white;
+    letter-spacing: 3px;
+    text-decoration:none;
+}
+
+.contenedor_navbar_shoppingBag{
+    display:flex;
+}
+
+.shopping-bag{
+    color: white;
+    font-size: 1.5rem;
+}
+
+#header-image, #footer-image {
+    width: 100px !important;
+    height: auto !important;
+}
+
+
 
  h1>a {
      text-decoration-line: none;
@@ -37,10 +135,7 @@
      font-size: 1.2rem!important;
  }
 
- body {
-     height: 100vh;
-     background-color: wheat
- }
+ 
 
  .happy-client {
      max-width: 50vw!important;
@@ -400,21 +495,20 @@
  [v-cloak] {
      display: none;
  }
-
- /* Modifica precio y cantidad total en offcanvas y precio y cantidad en cards */
-
- p>span, span>p {
+/* <<<<<<< HEAD */
+/* Modifica precio y cantidad total en offcanvas y precio y cantidad en cards */
+ p>span,span>p {
      font-weight: 500;
  }
-
- #busqueda,#search {
-     width: 50vw!important;
-     margin-left: 1vw!important;
- }
+#busqueda,#search {
+    width: 50vw!important;
+    margin-left: 1vw!important;
+}
 
 .album{
-    width:100%!important;
+   width:100%!important;
 }
+
 
 .spanRojo {
     color: red;
@@ -449,18 +543,68 @@ form div.nombreYApellido{
        }
 }
 
-@media only screen and (min-width: 768px) {
-     #busqueda {
-         width: 20vw!important;
-     }
+@media only screen and (min-width: 768px){
+    header > .contenedor_logo_titulo{
+        width: 40%;
+        justify-content: start;
+    }
 
-     form .campo {
-        margin: 0 !important;
-        padding: .3rem !important;
-        }
- }
+    #toggle_navbar:checked + label #close_toggle,
+    label[for="toggle_navbar"] #open_toggle{
+        display: none;
+    }
 
- @media only screen and (min-width: 900px) {
+    #navbar{
+        width: 100%;
+        background-color: transparent;
+        position: initial;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        transform: translateY(0%);
+    }
+    
+    #navbar .link_active{
+        color: #f87567;
+    }
+    
+    #navbar a ~ a{
+        margin-top: 0;
+    }
+
+    #navbar a {
+        color: black;
+        font-size: 1.1rem;
+    }
+    #navbar a:hover{
+        color: #f87567;
+    }
+
+    #footer{
+        flex-direction: row !important;
+    }
+
+    .contenedores_laterales{
+        width: 25% !important;
+    }
+
+    .contenedor_sobre_mi{
+        width:50% !important;
+    }
+   
+    #busqueda {
+        width: 20vw!important;
+    }
+
+    form .campo {
+       margin: 0 !important;
+       padding: .3rem !important;
+       }
+
+
+}
+
+@media only screen and (min-width: 900px) {
     .cantidad-productos  {
         display: block;
     }  
@@ -468,3 +612,7 @@ form div.nombreYApellido{
         display: block;
     }
  }
+
+
+
+

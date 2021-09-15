@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles/alertify.min.css">
-    <link rel="stylesheet" href="./styles/default.css">
-    <title>F R A N C O, Home</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/58d99c8dac.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/alertify.min.css">
+        <link rel="stylesheet" href="./styles/default.css">
+        <title>F R A N C O - Home</title>
+    </head>
 
 <body class="bg-light" id="app">
     <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre mí</h4>
-                        <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                            recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces
-                            riquisimos!
-                        </p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <ul class="list-unstyled">
-                            <li><a href="./index.html" class="text-white">Home</a></li>
-                            <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
-                            <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
-                            <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasRight">Tu Carrito</a></li>
-                            <li><a href="./contacto.html" class="text-white">Contacto</a></li>
-                            <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
+        <a href="index.html" class="contenedor_logo_titulo">
+            <img src="./assets/schnauzer-logo2.png" alt="logo" id="header-image">
+            <h3 class="">FRANCO PET-SHOP</h3>
+        </a>  
 
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                        data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+        <input type="checkbox" id="toggle_navbar">
+        <label for="toggle_navbar">
+            <span id="open_toggle">&equiv;</span>
+            <span id="close_toggle">&#10006;</span>
+        </label>
+    
+        <div class="contenedor_navbar_shoppingBag">
+          <nav id="navbar">
+            <a href="./index.html" class="link_active">INICIO</a>
+            <a href="./jugueteria.htm">PRODUCTOS DE FARMACIA</a>
+            <a href="./farmacia.html">JUGUETES</a>
+            <a href="./contacto.html">CONTACTENOS</a>
+            </nav> 
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i class="fas fa-shopping-bag shopping-bag"></i>    
+            </button>
         </div>
     </header>
     <main class="m-5">
@@ -176,15 +162,35 @@
         </div>
     </main>
 
-    <div class="container my-5">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
+    
+        <footer class=" bg-dark d-flex flex-column justify-content-between align-items-center border-top p-4" id="footer">
 
-                <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
+            <div class="d-flex justify-content-center align-items-center contenedores_laterales">
+                <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
+            </div>
+    
+            <div class=" d-flex flex-column text-center contenedor_sobre_mi">
+                <h4 class="text-white">Sobre mí <!-- SOBRE MÍ--> </h4>
+                <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                    recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                    prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                </p>
+            </div>
+    
+            <div class=" d-flex flex-column text-center justify-content-between contenedores_laterales">
+                <h4 class="text-white">Mis redes <!-- MIS REDES--></h4>
+               
+                <div class="d-flex justify-content-between w-100 mx-auto contenedor_mis_redes">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <span class="text-muted">F R A N C O | PetYop &copy; 2021</span>
+    
             </div>
         </footer>
-    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
