@@ -16,48 +16,47 @@
 </head>
 
 
-<header id="jugueteria">
-    <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">Sobre mí</h4>
-                    <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                        recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                        prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
-                    </p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <ul class="list-unstyled">
-                        <li><a href="./index.html" class="text-white">Home</a></li>
-                        <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
-                        <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
-                        <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight">Tu Carrito</a></li>
-                        <li><a href="./contacto.html" class="text-white">Contacto</a></li>
-                        <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
-
-                    </ul>
+<body class="bg-light" id="app">
+    <header id="jugueteria">
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre mí</h4>
+                        <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                            recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                        </p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <ul class="list-unstyled">
+                            <li><a href="./index.html" class="text-white">Home</a></li>
+                            <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
+                            <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
+                            <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight">Tu Carrito</a></li>
+                            <li><a href="./contacto.html" class="text-white">Contacto</a></li>
+                            <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
+    
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
+                        data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </div>
-    </div>
-</header>
-
-<body class="bg-light" id="app">
-    <main v-show="!carga" class="m-5">
+    </header>
+    <main v-show="!carga" class="mt-5">
         <div class="container">
-            <div class="col-11 mx-2 py-5 text-center">
+            <div class="col-12 mx-2 pt-5 text-center">
                 <h1 class="display-4 fw-normal m-5 text-center">¡La jugueteria de Franco! 🐾</h1>
                 <p class="col-12 lead presentacion text-justify">Divertirse siempre fue importante para todos, y
                     nuestras
@@ -70,7 +69,7 @@
                 <img src="./assets/loader.gif" alt="loader gif" id="loader-gif" class="mx-auto d-block">
             </div>
             <form class="row">
-                <div class="col align-self-end" id="search">
+                <div class="col align-self-start" id="search">
                     <label for="busqueda" class="visually-hidden"></label>
                     <input type="text" class="form-control" id="busqueda" placeholder="Buscar producto"
                         v-model="busqueda">
@@ -87,7 +86,7 @@
             <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col" v-for="producto in busquedaProductos" :key="producto._id">
+                        <div class="col" v-for="producto in busquedaProductos" :key="producto._id" class="tamano-card">
                             <div class="card shadow-sm">
                                 <img v-bind:src="producto.imagen" alt="imagen de producto" class="img-producto">
                                 <img src="./assets/isStock.png" alt="" class="img-stock" v-if="producto.stock<5">
