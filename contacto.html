@@ -13,66 +13,55 @@
     <title>F R A N C O, Contacto </title>
 </head>
 
+<body class="bg-light" id="app">
+    <header>
+        <a href="index.html" class="contenedor_logo_titulo">
+            <img src="./assets/schnauzer-logo2.png" alt="logo" id="header-image">
+            <h3 class="">FRANCO PET-SHOP</h3>
+        </a>
 
-<header>
-    <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">Sobre mí</h4>
-                    <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                        recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                        prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
-                    </p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <ul class="list-unstyled">
-                        <li><a href="./index.html" class="text-white">Home</a></li>
-                        <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
-                        <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
-                        <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight">Tu Carrito</a></li>
-                        <li><a href="./contacto.html" class="text-white">Contacto</a></li>
-                        <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
+        <input type="checkbox" id="toggle_navbar">
+        <label for="toggle_navbar">
+            <span id="open_toggle">&equiv;</span>
+            <span id="close_toggle">&#10006;</span>
+        </label>
 
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <div class="contenedor_navbar_shoppingBag">
+            <nav id="navbar">
+                <a href="./index.html" class="link_active">INICIO</a>
+                <a href="./jugueteria.html">JUGUETES</a>
+            <a href="./farmacia.html">FARMACIA</a>
+                <a href="./contacto.html">CONTACTENOS</a>
+            </nav>
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">
+                <i class="fas fa-shopping-bag shopping-bag"></i>
             </button>
         </div>
-    </div>
-</header>
-
-<body class="bg-light" id="app">
-    <main class="m-sm-5 m-md-5 mainFormulario">
-        <div class="row  mx-5 mt-5 parrafoMovil">
-            <h4 class="display-4 fw-normal my-1 mx-2 px-3 text-left">Formulario de contacto</h4>
-            <p class="col-12 lead presentacion my-1 mx-2 px-3 parrafoMovil">Qué bueno que hayas llegado hasta acá...Sin mucho más
-                rodeo, abajo
-                podés dejarnos tus comentarios para que sigamos en contacto.</p>
-        </div>
-
+    </header>
+    <main class="mainFormulario">
         <form class="m-sm-0 mx-md-4 mx-lg-5 p-lg-4 formularioMovil">
+            <div class="row mx-5 mt-5 parrafoMovil">
+                <h4 class="display-4 fw-normal my-1 mx-2 px-3 text-left">Formulario de contacto</h4>
+                <p class="col-12 lead presentacion my-1 mx-2 px-3 parrafoMovil">Qué bueno que hayas llegado hasta
+                    acá...Sin mucho más
+                    rodeo, abajo
+                    podés dejarnos tus comentarios para que sigamos en contacto.</p>
+            </div>
             <div class="row m-sm-0 m-5 pb-4 campo">
                 <div class="col nombreYApellido">
                     <div class="form-outline campo">
-                        <label class="form-label" for="nombre">Tu nombre y apellido <span class="spanRojo">*</span></label>
-                        <input v-model="formElements[0]" type="text" id="nombre" class="form-control" placeholder="Ej: Marcos Marquesi"/>
+                        <label class="form-label" for="nombre">Tu nombre y apellido <span
+                                class="spanRojo">*</span></label>
+                        <input v-model="formElements[0]" type="text" id="nombre" class="form-control"
+                            placeholder="Ej: Marcos Marquesi" />
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline campo">
                         <label class="form-label" for="mascota">¿El de tu mascota?</label>
-                        <input type="text" id="mascota" class="form-control" v-model="nombreMascota" placeholder="Ej: Firu"/>
+                        <input type="text" id="mascota" class="form-control" v-model="nombreMascota"
+                            placeholder="Ej: Firu" />
                     </div>
                 </div>
             </div>
@@ -80,26 +69,28 @@
             <!-- Text input -->
             <div class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="hobbies">Paseo o hobbie favorito de {{nombreMascota}}</label>
-                <input type="text" id="hobbies" class="form-control" placeholder="Ej: concurso de perros"/>
+                <input type="text" id="hobbies" class="form-control" placeholder="Ej: concurso de perros" />
             </div>
 
             <!-- Text input -->
             <div class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es perro o gato? ¿Quizás otra
                     especie?</label>
-                <input type="text" id="form6Example4" class="form-control" placeholder="Ej: perro"/>
+                <input type="text" id="form6Example4" class="form-control" placeholder="Ej: perro" />
             </div>
 
             <!-- Email input -->
             <div class="form-outline m-sm-0 m-5 pb-4 campo">
-                <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico? <span class="spanRojo">*</span></label>
-                <input v-model="formElements[1]" type="email" id="form6Example5" class="form-control" placeholder="Ej: franco@dogmail.com"/>
+                <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico? <span
+                        class="spanRojo">*</span></label>
+                <input v-model="formElements[1]" type="email" id="form6Example5" class="form-control"
+                    placeholder="Ej: franco@dogmail.com" />
             </div>
 
             <!-- Number input -->
             <fieldset class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="form6Example6">¿Tu número de teléfono?</label>
-                <input type="number" id="form6Example6" class="form-control" required placeholder="Ej: 47656549"/>
+                <input type="number" id="form6Example6" class="form-control" required placeholder="Ej: 47656549" />
             </fieldset>
 
             <!-- Message input -->
@@ -116,7 +107,8 @@
             </div>
             <p><span class="spanRojo">*</span> campos obligatorios</p>
             <!-- Submit button -->
-            <button type="button" class="btn btn-dark btn-block m-5 botonMovil" @click="alertaContacto()" :disabled=habilitar>¡Enviar!</button>
+            <button type="button" class="btn btn-dark btn-block m-5 botonMovil" @click="alertaContacto()"
+                :disabled=habilitar>¡Enviar!</button>
         </form>
         <!-- OFF CANVAS CARRITO -->
         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
@@ -126,52 +118,78 @@
         </button>
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header contenedor">
-                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="mt-2 col-8">Tu carrito tiene los
-                    siguientes productos </h4>
-                <transition name="bounce">
-                    <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row">
+            <div class="offcanvas-header contenedor bg-dark">
+                <button type="button" data-bs-dismiss="offcanvas" aria-label="Close">&times;</button>
+                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-12 text-center text-white">
+                    Tu carrito tiene los siguientes productos </h4>
+                <transition name="custom-classes-transition" enter-active-class="animated tada">
+                    <h4 class="mt-2 col-12  text-center text-white" v-if="carrito.length==0">Tu carrito está vacío</h4>
+                </transition>
+            </div>
+            <section class="offcanvas-body">
+                <transition name="custom-classes-transition" enter-active-class="animated bounceInLeft">
+                    <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row justify-content-center">
                         <img src="./assets/carrito-triste.png" alt="icono carrito triste"
-                            class="carrito-miniatura col-3">
-                        <h4 class="mt-2 col-8">Tu carrito está vacío</h4>
+                            class="carrito-miniatura col-8">
                     </div>
                 </transition>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div v-for="producto in carrito" class="contenedor">
-                    <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-                    <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
-                            class="img-miniatura">
+
+                <div v-if="!carrito.length==0">
+                    <div v-for="producto in carrito" class="contenedor" :key="producto._id">
+                        <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                        <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
+                                class="img-miniatura">
+                        </div>
+                        <div class="item-3">{{producto.cantidad}}</div>
+                        <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
+                                @click="agregarProductoCarrito(producto)">&#43;</button></div>
+                        <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
+                                @click="quitarProductoCarrito(producto)">&minus;</button></div>
+                        <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
+                        <div class="item-6 align-middle">Subtotal</div>
+                        <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
                     </div>
-                    <div class="item-3">{{producto.cantidad}}</div>
-                    <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
-                            @click="agregarProductoCarrito(producto)">&#43;</button></div>
-                    <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
-                            @click="quitarProductoCarrito(producto)">&minus;</button></div>
-                    <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
-                    <div class="item-6 align-middle">Subtotal</div>
-                    <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+                    <div class="row justify-content-between">
+                        <p class="col-6 text-right"><span>Total productos:</span> {{totalProductosCarrito}}</p>
+                        <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
+                    </div>
                 </div>
-                <div class="row justify-content-between">
-                    <p class="col-5 text-right"><span> Total productos:</span> {{totalProductosCarrito}}</p>
-                    <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
-                </div>
+            </section>
+        </div>
+
+        <footer class=" bg-dark d-flex flex-column justify-content-between align-items-center border-top p-4"
+            id="footer" v-show="!carga">
+
+            <div class="d-flex justify-content-center align-items-center contenedores_laterales">
+                <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
             </div>
-        </div>
 
-        <div class="container my-5">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                    <img src="./assets/schnauzer-logo2.png" alt="" id="header-image" data-bs-toggle="collapse"
-                        data-bs-target="#navbarHeader">
+            <div class=" d-flex flex-column text-center contenedor_sobre_mi">
+                <h4 class="text-white">SOBRE MI
+                    <!-- SOBRE MI-->
+                </h4>
+                <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página
+                    para
+                    recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                    prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                </p>
+            </div>
 
-                    <span class="text-muted">| F R A N C O | PetShop &copy; 2021</span>
+            <div class=" d-flex flex-column text-center justify-content-between contenedores_laterales">
+                <h4 class="text-white">MIS REDES
+                    <!-- MIS REDES-->
+                </h4>
+
+                <div class="d-flex justify-content-between w-100 mx-auto contenedor_mis_redes">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
 
-            </footer>
-        </div>
+                <span class="text-muted">F R A N C O | PetYop &copy; 2021</span>
+
+            </div>
+        </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
             crossorigin="anonymous"></script>

@@ -18,46 +18,33 @@
 
 <body class="bg-light" id="app">
     <header id="jugueteria">
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <h4 class="text-white">Sobre mí</h4>
-                        <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                            recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
-                        </p>
-                    </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <ul class="list-unstyled">
-                            <li><a href="./index.html" class="text-white">Home</a></li>
-                            <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
-                            <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
-                            <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasRight">Tu Carrito</a></li>
-                            <li><a href="./contacto.html" class="text-white">Contacto</a></li>
-                            <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
+        <a href="index.html" class="contenedor_logo_titulo">
+            <img src="./assets/schnauzer-logo2.png" alt="logo" id="header-image">
+            <h3 class="">FRANCO PET-SHOP</h3>
+        </a>  
+
+        <input type="checkbox" id="toggle_navbar">
+        <label for="toggle_navbar">
+            <span id="open_toggle">&equiv;</span>
+            <span id="close_toggle">&#10006;</span>
+        </label>
     
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                        data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+        <div class="contenedor_navbar_shoppingBag">
+          <nav id="navbar">
+            <a href="./index.html" class="link_active">INICIO</a>
+            <a href="./jugueteria.html">JUGUETES</a>
+            <a href="./farmacia.html">FARMACIA</a>
+            <a href="./contacto.html">CONTACTENOS</a>
+            </nav> 
+            <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i class="fas fa-shopping-bag shopping-bag"></i>    
+            </button>
         </div>
     </header>
-    <main v-show="!carga" class="mt-5">
-        <div class="container">
+    <main v-show="!carga" class="pt-5">
+        <div class="container pt-5">
             <div class="col-12 mx-2 pt-5 text-center">
-                <h1 class="display-4 fw-normal m-5 text-center">¡La jugueteria de Franco! 🐾</h1>
+                <h1 class="display-4 fw-normal my-5 pb-2 pt-5"><a href="./juego.html" class="text-black">¡La jugueteria de Franco! 🐾</a></h1>
                 <p class="col-12 lead presentacion text-justify">Divertirse siempre fue importante para todos, y
                     nuestras
                     mascotas no se
@@ -179,14 +166,37 @@
             </section>
         </div>
 
-        <div class="container my-5" v-show="!carga">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                    <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
-                    <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
-                </div>
-            </footer>
+    <footer class=" bg-dark d-flex flex-column justify-content-between align-items-center border-top p-4" id="footer"  v-show="!carga">
+
+        <div class="d-flex justify-content-center align-items-center contenedores_laterales">
+            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
         </div>
+
+        <div class=" d-flex flex-column text-center contenedor_sobre_mi">
+            <h4 class="text-white">SOBRE MI
+                <!-- SOBRE MI-->
+            </h4>
+            <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+            </p>
+        </div>
+
+        <div class=" d-flex flex-column text-center justify-content-between contenedores_laterales">
+            <h4 class="text-white">MIS REDES
+                <!-- MIS REDES-->
+            </h4>
+
+            <div class="d-flex justify-content-between w-100 mx-auto contenedor_mis_redes">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <span class="text-muted">F R A N C O | PetYop &copy; 2021</span>
+
+        </div>
+    </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
             crossorigin="anonymous"></script>
