@@ -53,24 +53,24 @@
 </header>
 
 <body class="bg-light" id="app">
-    <main class="m-sm-5 m-md-5">
-        <div class="row  mx-5 mt-5">
+    <main class="m-sm-5 m-md-5 mainFormulario">
+        <div class="row  mx-5 mt-5 parrafoMovil">
             <h4 class="display-4 fw-normal my-1 mx-2 px-3 text-left">Formulario de contacto</h4>
-            <p class="col-12 lead presentacion my-1 mx-2 px-3">Qué bueno que hayas llegado hasta acá...Sin mucho más
+            <p class="col-12 lead presentacion my-1 mx-2 px-3 parrafoMovil">Qué bueno que hayas llegado hasta acá...Sin mucho más
                 rodeo, abajo
                 podés dejarnos tus comentarios para que sigamos en contacto.</p>
         </div>
 
-        <form class="m-sm-0 mx-md-4 mx-lg-5 p-lg-4">
-            <div class="row m-sm-0 m-5 pb-4">
+        <form class="m-sm-0 mx-md-4 mx-lg-5 p-lg-4 formularioMovil">
+            <div class="row m-sm-0 m-5 pb-4 campo">
                 <div class="col nombreYApellido">
-                    <div class="form-outline">
-                        <label class="form-label" for="nombre">Tu nombre y apellido</label>
+                    <div class="form-outline campo">
+                        <label class="form-label" for="nombre">Tu nombre y apellido <span class="spanRojo">*</span></label>
                         <input v-model="formElements[0]" type="text" id="nombre" class="form-control" placeholder="Ej: Marcos Marquesi"/>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="form-outline">
+                    <div class="form-outline campo">
                         <label class="form-label" for="mascota">¿El de tu mascota?</label>
                         <input type="text" id="mascota" class="form-control" v-model="nombreMascota" placeholder="Ej: Firu"/>
                     </div>
@@ -78,32 +78,32 @@
             </div>
 
             <!-- Text input -->
-            <div class="form-outline m-sm-0 m-5 pb-4">
+            <div class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="hobbies">Paseo o hobbie favorito de {{nombreMascota}}</label>
                 <input type="text" id="hobbies" class="form-control" placeholder="Ej: concurso de perros"/>
             </div>
 
             <!-- Text input -->
-            <div class="form-outline m-sm-0 m-5 pb-4">
+            <div class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="form6Example4">{{nombreMascota}}, ¿es perro o gato? ¿Quizás otra
                     especie?</label>
                 <input type="text" id="form6Example4" class="form-control" placeholder="Ej: perro"/>
             </div>
 
             <!-- Email input -->
-            <div class="form-outline m-sm-0 m-5 pb-4">
-                <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico?</label>
+            <div class="form-outline m-sm-0 m-5 pb-4 campo">
+                <label class="form-label" for="form6Example5">¿Cuál es tu correo electrónico? <span class="spanRojo">*</span></label>
                 <input v-model="formElements[1]" type="email" id="form6Example5" class="form-control" placeholder="Ej: franco@dogmail.com"/>
             </div>
 
             <!-- Number input -->
-            <fieldset class="form-outline m-sm-0 m-5 pb-4">
+            <fieldset class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="form6Example6">¿Tu número de teléfono?</label>
                 <input type="number" id="form6Example6" class="form-control" required placeholder="Ej: 47656549"/>
             </fieldset>
 
             <!-- Message input -->
-            <div class="form-outline m-sm-0 m-5 pb-4">
+            <div class="form-outline m-sm-0 m-5 pb-4 campo">
                 <label class="form-label" for="form6Example7">¿Dudas, comentarios, sugerencias, pedidos? Todo aca abajo
                     ⬇</label>
                 <textarea class="form-control" id="form6Example7" rows="4" placeholder="Comentario..."></textarea>
@@ -114,9 +114,9 @@
                 <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
                 <label class="form-check-label" for="form6Example8"> ¿Te gustaría recibir novedades de Franco? </label>
             </div>
-
+            <p><span class="spanRojo">*</span> campos obligatorios</p>
             <!-- Submit button -->
-            <button type="button" class="btn btn-dark btn-block m-5" @click="alertaContacto()" :disabled=habilitar>¡Enviar!</button>
+            <button type="button" class="btn btn-dark btn-block m-5 botonMovil" @click="alertaContacto()" :disabled=habilitar>¡Enviar!</button>
         </form>
         <!-- OFF CANVAS CARRITO -->
         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
