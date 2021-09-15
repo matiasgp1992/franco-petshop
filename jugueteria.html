@@ -52,17 +52,12 @@
             </button>
         </div>
     </div>
-
-
-
-
 </header>
-</sticky-top>
 
 <body class="bg-light" id="app">
     <main v-show="!carga" class="m-5">
         <div class="container">
-            <div class="col-11 mx-2 text-center">
+            <div class="col-11 mx-2 py-5 text-center">
                 <h1 class="display-4 fw-normal m-5 text-center">¡La jugueteria de Franco! 🐾</h1>
                 <p class="col-12 lead presentacion text-justify">Divertirse siempre fue importante para todos, y
                     nuestras
@@ -161,7 +156,7 @@
                             class="carrito-miniatura col-8">
                     </div>
                 </transition>
-               
+
                 <div v-if="!carrito.length==0">
                     <div v-for="producto in carrito" class="contenedor" :key="producto._id">
                         <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>

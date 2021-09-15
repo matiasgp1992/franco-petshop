@@ -10,60 +10,64 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/alertify.min.css">
     <link rel="stylesheet" href="./styles/default.css">
-    <title>F R A N C O, Farmacia </title>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+
+    <title>F R A N C O, Farmacia</title>
 </head>
 
 
-<header id="farmacia">
-    <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">Sobre mí</h4>
-                    <p class="text-white text-justify">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
-                        recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
-                        prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
-                    </p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <ul class="list-unstyled">
-                        <li><a href="./index.html" class="text-white">Home</a></li>
-                        <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
-                        <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
-                        <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvasRight">Tu Carrito</a></li>
-                        <li><a href="./contacto.html" class="text-white">Contacto</a></li>
-                        <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
 
-                    </ul>
+
+
+<body class="bg-light" id="app">
+    <header id="farmacia">
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Sobre mí</h4>
+                        <p class="text-white">¡Hola! Mi nombre es Franco y soy un Schnauzer. Me armé esta página para
+                            recomendarles todo lo que hace mi humano. Es increíblemente profesional, sorprendentemente
+                            prolijo e infinitamente amigable. ¡No muerde y al primer ladrido suelta unos dulces riquisimos!
+                        </p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <ul class="list-unstyled">
+                            <li><a href="./index.html" class="text-white">Home</a></li>
+                            <li><a href="./jugueteria.html" class="text-white">Nuestra Jugueteria</a></li>
+                            <li><a href="./farmacia.html" class="text-white">Nuestra Farmacia</a></li>
+                            <li><a href="#" class="text-white" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasRight">Tu Carrito</a></li>
+                            <li><a href="./contacto.html" class="text-white">Contacto</a></li>
+                            <li><a href="./juego.html" class="text-white">Bonus Track</a></li>
+    
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
-                    data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <h3 class="text-white "><img src="./assets/schnauzer-logo2.png" alt="" id="header-image"
+                        data-bs-toggle="collapse" data-bs-target="#navbarHeader">FRANCO PET-SHOP</h3>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </div>
-    </div>
-</header>
-
-<body class="bg-light" id="app">
+    </header>
     <main v-show="!carga" class="m-5">
         <div class="container">
-            <div class="col-11 mx-2 text-center">
-                <h1 class="display-4 fw-normal m-5 text-center">Una farmacia que cuida tu mascota...</h1>
-                <p class="col-12 lead presentacion text-justify">Ojo al piojo que no todo es diversión. Nos gusta mimar
+            <div class="col-sm-11 mx-2 py-5 text-center">
+                <h1 class="display-4 fw-normal m-xs-0 m-5 text-center">Una farmacia que cuida tu mascota...</h1>
+                <p class="col-sm-12 lead presentacion text-justify">Ojo al piojo que no todo es diversión. Nos gusta mimar
                     de
                     Franco porque es lo más preciado en nuestras vidas. Nos ponemos responsables y cuidadosos y te
                     traemos
                     los mejores productos de farmacia para tu mascota</p>
             </div>
-            <div v-if="carga">
+            <div v-show="carga">
                 <img src="./assets/loader.gif" alt="loader gif" id="loader-gif" class="mx-auto d-block">
             </div>
             <form class="row">
@@ -73,49 +77,54 @@
                         v-model="busqueda">
                 </div>
             </form>
-
-            <div id="noProducto" v-show="noProducts" class="row justify-content-around">
+            <div id="noProducto" v-if="noProducts" class="row justify-content-around">
                 <img src="./assets/noHay.png" alt="cara triste por no hallar productos" id="sadFace"
-                    class="col-10 mt-5">
-                <p class="col-10 text-center mt-5">Mmm...no tenemos {{busqueda}}...La buena noticia es que podés
-                    dejarnos un
+                    class="col-sm-12 col-md-11 mt-5">
+                <p class="col-sm-12 col-md-10 text-center mt-5">Mmm...no tenemos {{busqueda}}...La buena noticia es que
+                    podés dejarnos un
                     comentario en nuestra <a href="./contacto.html">página de contacto</a> y podemos hablar con nuestros
                     proveedores para conseguirlo...¿qué tul??</p>
             </div>
             <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col" v-for="producto in busquedaProductos">
+                        <div class="col" v-for="producto in busquedaProductos" :key="producto._id">
                             <div class="card shadow-sm">
                                 <img v-bind:src="producto.imagen" alt="imagen de producto" class="img-producto">
                                 <img src="./assets/isStock.png" alt="" class="img-stock" v-if="producto.stock<5">
                                 <div class="card-body">
-                                    <h6>{{producto.nombre}}</h6>
-                                    <p class="card-text">{{producto.descripcion}}</p>
-                                    <p> Precio: ${{producto.precio}} </p>
+                                    <h6 v-cloak>{{producto.nombre}}</h6>
+                                    <p class="card-text" v-cloak>{{producto.descripcion}}</p>
                                 </div>
-                                <div class="d-flex justify-content-around align-items-center pb-4">
-                                    <button type="button" class="btn btn-primary"
-                                        @click="agregarProductoCarrito(producto)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                                            <path
-                                                d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
-                                            <path
-                                                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                        </svg>
-                                        Agregar
-                                    </button>
-                                    <button type="button" class="btn btn-primary"
-                                        @click="quitarProductoCarrito(producto)">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-cart-dash" viewBox="0 0 16 16">
-                                            <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z" />
-                                            <path
-                                                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                        </svg>
-                                        Quitar
-                                    </button>
+                                <div class="d-column justify-content-around align-items-center pb-4">
+                                    <span class="d-flex justify-content-around align-items-center">
+                                        <p> Me llevo: {{obtenerCantidadProducto(producto)}}</p>
+                                        <p> Precio Unitario: ${{producto.precio}}</p>
+                                    </span>
+                                    <div class="d-flex justify-content-around align-items-center">
+                                        <button type="button" class="btn btn-dark"
+                                            @click="agregarProductoCarrito(producto)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                                <path
+                                                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                            </svg>
+                                            Agregar
+                                        </button>
+
+                                        <button type="button" class="btn btn-dark"
+                                            @click="quitarProductoCarrito(producto)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                fill="currentColor" class="bi bi-cart-dash" viewBox="0 0 16 16">
+                                                <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z" />
+                                                <path
+                                                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                            </svg>
+                                            Quitar
+                                        </button>
+                                    </div>
 
                                 </div>
                             </div>
@@ -125,7 +134,6 @@
                 </div>
             </div>
         </div>
-
         <!-- OFF CANVAS CARRITO -->
         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight" id="myBtn">
@@ -134,58 +142,60 @@
         </button>
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header contenedor">
-                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-5">Tu carrito está contento: </h4>
-                <transition name="bounce">
-                    <div v-if="carrito.length==0">
-                        <img src="./assets/carrito-triste.png" alt="icono carrito triste" class="carrito-miniatura">
-                        <h4 class="mt-2">Tu carrito está triste (y vacío)</h4>
+            <div class="offcanvas-header contenedor bg-dark">
+                <button type="button" data-bs-dismiss="offcanvas" aria-label="Close">&times;</button>
+                <h4 id="offcanvasRightLabel" v-if="!carrito.length==0" class="col-12 text-center text-white">
+                    Tu carrito tiene los siguientes productos </h4>
+                <transition name="custom-classes-transition" enter-active-class="animated tada">
+                    <h4 class="mt-2 col-12  text-center text-white" v-if="carrito.length==0">Tu carrito está vacío</h4>
+                </transition>
+            </div>
+            <section class="offcanvas-body">
+                <transition name="custom-classes-transition" enter-active-class="animated bounceInDown">
+                    <div id="offcanvasRightLabel" v-if="carrito.length==0" class="col-12 row justify-content-center">
+                        <img src="./assets/carrito-triste.png" alt="icono carrito triste"
+                            class="carrito-miniatura col-8">
                     </div>
                 </transition>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div v-for="producto in carrito" class="contenedor">
-                    <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
-                    <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
-                            class="img-miniatura">
+               
+                <div v-if="!carrito.length==0">
+                    <div v-for="producto in carrito" class="contenedor" :key="producto._id">
+                        <div class="item-1 align-middle text-wrap">{{producto.nombre}}</div>
+                        <div class="item-2"><img v-bind:src="producto.imagen" alt="imagen de producto"
+                                class="img-miniatura">
+                        </div>
+                        <div class="item-3">{{producto.cantidad}}</div>
+                        <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
+                                @click="agregarProductoCarrito(producto)">&#43;</button></div>
+                        <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
+                                @click="quitarProductoCarrito(producto)">&minus;</button></div>
+                        <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
+                        <div class="item-6 align-middle">Subtotal</div>
+                        <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
                     </div>
-                    <div class="item-3">{{producto.cantidad}}</div>
-                    <div class="item-5"><button class=" btn btn-dark btn-block btn-miniatura"
-                            @click="agregarProductoCarrito(producto)">&#43;</button></div>
-                    <div class="item-4"><button class=" btn btn-dark btn-block btn-miniatura"
-                            @click="quitarProductoCarrito(producto)">&minus;</button></div>
-                    <div class="item-7" @click="eliminarProducto(producto)">&times;</div>
-                    <div class="item-6 align-middle">Subtotal</div>
-                    <div class="item-8 align-middle">${{subtotalProducto(producto)}}</div>
+                    <div class="row justify-content-between">
+                        <p class="col-6 text-right"><span>Total productos:</span> {{totalProductosCarrito}}</p>
+                        <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
+                    </div>
                 </div>
-                <div class="row justify-content-between">
-                    <p class="col-5 text-right"><span> Total productos:</span> {{totalProductosCarrito}}</p>
-                    <p class="col-6 text-right"><span> Precio total:</span> ${{calcularPrecioTotal}} </p>
-                </div>
-            </div>
+            </section>
         </div>
+
+        <div class="container my-5" v-show="!carga">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
+                    <span class="text-muted">| F R A N C O | PetYop &copy; 2021</span>
+                </div>
+            </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="./script/alertify.min.js"></script>
+        <script src="./script/app.js"></script>
     </main>
-<div class="container my-5" v-show="!carga">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-            <img src="./assets/schnauzer-logo2.png" alt="" id="footer-image">
-            <span class="text-muted">| F R A N C O | PetShop &copy; 2021</span>
-        </div>
-
-
-    </footer>
-</div>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-<script src="https://unpkg.com/vue@next"></script>
-<script src="./script/alertify.min.js"></script>
-<script src="./script/app.js"></script>
-
 </body>
+
 </html>

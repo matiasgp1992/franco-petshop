@@ -58,9 +58,9 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        lastStock(producto){
+        lastStock(producto) {
             console.log(producto)
-            return producto["stock"]<=5;
+            return producto["stock"] <= 5;
         },
         filtrarProductos() {
             this.productosFarmacia = this.productos.filter(producto => producto.tipo == "Medicamento")
@@ -214,3 +214,4 @@ window.addEventListener(("click"), (e) => {
     audio.play()
     key.classList.add("playing")
 })
+

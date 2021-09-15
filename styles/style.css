@@ -3,11 +3,20 @@
      padding: 0,
  }
 
+header{
+    position: fixed;
+    width: 100%;
+    top:0;
+    right:0;
+    z-index:1;
+}
  #header-image, #footer-image {
      width: 100px !important;
      height: auto !important;
  }
-
+h1>a{
+    text-decoration-line: none;
+}
  #header-image:hover {
      cursor: pointer;
  }
@@ -43,6 +52,7 @@
 
  q {
      color: black;
+     max-width: 100%;
  }
 
  .review-container {
@@ -400,8 +410,19 @@
      font-weight: 500;
  }
 
- /* 320 a 768 */
+@media only screen and (min-width: 768px){
 
+
+
+
+
+
+
+
+
+
+    
+}
  /* 768 a 992 */
 
  /* 992 en adelante */
