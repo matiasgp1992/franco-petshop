@@ -514,8 +514,8 @@
      color: red;
  }
 
- main.mainFormulario {
-     margin: 1.5rem !important;
+ .mainFormulario {
+     margin: 1rem !important;
      margin-top: 0!important;
      padding-top: 25vh;
  }
