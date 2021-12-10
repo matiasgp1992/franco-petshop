@@ -76,7 +76,9 @@ const app = Vue.createApp({
             alertify.alert(`Acabamos de cargar en tu carrito la última unidad de "${producto.nombre}". No te preocupes, ¡ya mismo estamos llamando a nuestro proveedor!`);
         },
         guardarCarrito() {
+            console.log(this.carrito)
             const parsed = JSON.stringify(this.carrito);
+            console.log(parsed)
             localStorage.setItem('carrito', parsed);
         },
         agregarProductoCarrito(producto) {
